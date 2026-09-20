@@ -25,7 +25,7 @@ export const portfolioConfig = {
     handle: "platform-engineer",
     role: "DevOps & Platform Engineer",
     education: "B.Sc. Computer Science Student",
-    email: "lavi.yaron16@gmail.com",
+    email: "lavyaron@gmail.com",
     github: "https://github.com/YaronL16",
     linkedin: "https://www.linkedin.com/in/yaron-lavi/",
     statusBadge: "DevOps & Platform Engineer • B.Sc. Computer Science Student",
