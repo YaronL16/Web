@@ -28,139 +28,50 @@ import {
   Boxes
 } from 'lucide-react'
 
-// Projects data
-const PROJECTS = [
-  {
-    id: 'echo',
-    title: 'Echo',
-    category: 'Disaster Recovery & Orchestration',
-    description:
-      'OpenShift Database Backup & Disaster Recovery orchestrator built with kro (Kubernetes Resource Orchestrator), Kanister, and S3-compatible storage. Features automated multi-tenant snapshot lifecycles, declarative retention policies, and cross-cluster recovery verification.',
-    highlights: [
-      'Declarative multi-tenant backup scheduling via custom ResourceGraph definitions',
-      'Application-consistent database hooks using Kanister blueprints',
-      'Automated disaster recovery drill validations with zero production impact'
-    ],
-    tags: ['OpenShift', 'Kubernetes', 'kro', 'Kanister', 'S3', 'Go', 'Helm'],
-    status: 'Production Grade'
-  },
-  {
-    id: 'gitops',
-    title: 'Multi-Cluster GitOps',
-    category: 'Platform Architecture & Security',
-    description:
-      'Enterprise multi-cluster GitOps control plane utilizing ArgoCD ApplicationSets, Helm charts, and Kyverno policy-as-code admission control to enforce declarative drift remediation, zero-trust RBAC, and automated tenant workload deployments.',
-    highlights: [
-      'Dynamic cluster registration and configuration distribution via ApplicationSets',
-      'Automated policy-as-code enforcement and mutate/validate webhooks via Kyverno',
-      'Hermetic secret decoupling with HashiCorp Vault injection'
-    ],
-    tags: ['ArgoCD', 'Helm', 'Kyverno', 'Kubernetes', 'GitOps', 'Vault'],
-    status: 'Active Control Plane'
-  },
-  {
-    id: 'amandate',
-    title: 'AmanDate',
-    category: 'Full-Stack Application',
-    description:
-      'High-performance full-stack web application engineered with a FastAPI asynchronous backend and React frontend. Encapsulates structured RESTful APIs, optimized data access patterns, and automated containerized CI/CD delivery pipelines.',
-    highlights: [
-      'Asynchronous query handling and schema-validated serialization with Pydantic',
-      'Interactive, responsive modern UI with Tailwind CSS component architecture',
-      'Containerized multi-stage Docker builds with automated verification'
-    ],
-    tags: ['FastAPI', 'React', 'Python', 'Docker', 'PostgreSQL', 'Tailwind CSS'],
-    status: 'Completed'
-  },
-  {
-    id: 'voyager',
-    title: 'Voyager',
-    category: 'Cloud-Native Observability',
-    description:
-      'End-to-end cloud-native telemetry and observability framework unifying Prometheus metric scraping, Loki distributed log aggregation, Grafana visualization, and Mimir long-term metric storage across distributed Kubernetes clusters.',
-    highlights: [
-      'Multi-tenant log correlation linking Loki traces with Prometheus alerting rules',
-      'Custom Grafana operations dashboards tracking cluster SLIs/SLOs and latency',
-      'High-availability horizontal metric tiering with Grafana Mimir'
-    ],
-    tags: ['Prometheus', 'Grafana', 'Loki', 'Mimir', 'OpenTelemetry', 'Kubernetes'],
-    status: 'Maintained'
-  }
-]
+// Import all editable portfolio content from root portfolio.config.js
+import { portfolioConfig } from './portfolio.config.js'
 
-// Skills categorized
-const SKILL_CATEGORIES = [
-  { id: 'all', name: 'All Skills' },
-  { id: 'orchestration', name: 'Orchestration & Cloud' },
-  { id: 'gitops', name: 'GitOps & IaC' },
-  { id: 'observability', name: 'Observability & Telemetry' },
-  { id: 'languages', name: 'Languages & Core' }
-]
-
-const SKILLS = [
-  { name: 'Kubernetes', category: 'orchestration', level: 'Advanced', icon: '☸️' },
-  { name: 'OpenShift', category: 'orchestration', level: 'Advanced', icon: '🔴' },
-  { name: 'kro', category: 'orchestration', level: 'Intermediate', icon: '⚙️' },
-  { name: 'Kanister', category: 'orchestration', level: 'Advanced', icon: '📦' },
-  { name: 'Helm', category: 'gitops', level: 'Advanced', icon: '⎈' },
-  { name: 'ArgoCD', category: 'gitops', level: 'Advanced', icon: '🐙' },
-  { name: 'Kyverno', category: 'gitops', level: 'Advanced', icon: '🛡️' },
-  { name: 'Terraform', category: 'gitops', level: 'Proficient', icon: '🌍' },
-  { name: 'Ansible', category: 'gitops', level: 'Proficient', icon: '📜' },
-  { name: 'Vault', category: 'gitops', level: 'Intermediate', icon: '🔐' },
-  { name: 'Prometheus', category: 'observability', level: 'Advanced', icon: '🔥' },
-  { name: 'Grafana', category: 'observability', level: 'Advanced', icon: '📊' },
-  { name: 'Loki', category: 'observability', level: 'Advanced', icon: '🪵' },
-  { name: 'Mimir', category: 'observability', level: 'Intermediate', icon: '📈' },
-  { name: 'Go', category: 'languages', level: 'Proficient', icon: '🔷' },
-  { name: 'Python', category: 'languages', level: 'Advanced', icon: '🐍' },
-  { name: 'Bash', category: 'languages', level: 'Advanced', icon: '🐚' }
-]
-
-const PERSONAL_HIGHLIGHTS = [
-  {
-    title: 'Calisthenics & Ring Workouts',
-    tagline: 'Bodyweight Strength & Kinesthetic Mastery',
-    icon: Dumbbell,
-    accent: 'from-cyan-500/20 to-blue-500/10 border-cyan-500/30',
-    description:
-      'Dedicated to gymnastic rings training, strict muscle-ups, leverage holds, and progressive overload calisthenics. Translates the discipline of incremental physical conditioning into engineering problem solving.'
-  },
-  {
-    title: 'Mixology & Batched Cocktails',
-    tagline: 'Precision Infusions & Artisanal Flavors',
-    icon: GlassWater,
-    accent: 'from-amber-500/20 to-orange-500/10 border-amber-500/30',
-    description:
-      'Exploring flavor balance, milk-clarification techniques, acid adjustments, bespoke syrups, and pre-batched high-volume cocktails designed for effortless hosting.'
-  },
-  {
-    title: 'Rock Piano & Guitar',
-    tagline: 'Harmonic Flow & Creative Rhythm',
-    icon: Music2,
-    accent: 'from-emerald-500/20 to-teal-500/10 border-emerald-500/30',
-    description:
-      'Lifelong passion for keyboards and guitar — exploring progressive rock chord voicings, polyrhythms, dynamic blues grooves, and creative improvisation sessions.'
-  }
-]
+// Dynamic icon resolver for personal highlights & tools
+const ICON_MAP = {
+  Dumbbell,
+  GlassWater,
+  Music2,
+  Terminal: TerminalIcon,
+  Server,
+  Shield,
+  Cloud,
+  Activity,
+  Cpu,
+  Code2,
+  Database,
+  Radio,
+  Boxes,
+  Sparkles,
+  Layers
+}
 
 export default function App() {
+  const {
+    personal,
+    metrics = [],
+    terminal,
+    projects = [],
+    skillCategories = [],
+    skills = [],
+    personalHighlights = [],
+    footer
+  } = portfolioConfig
+
   const [activeCategory, setActiveCategory] = useState('all')
-  const [terminalHistory, setTerminalHistory] = useState([
-    {
-      type: 'system',
-      text: 'Initializing cloud platform session... Connected to platform-node-01.local [v1.28.4]'
-    },
-    {
-      type: 'system',
-      text: 'Type "help" to view available terminal commands or select from quick actions below.'
-    }
-  ])
+  const [terminalHistory, setTerminalHistory] = useState(() =>
+    (terminal?.welcomeText || []).map((text) => ({ type: 'system', text }))
+  )
   const [terminalInput, setTerminalInput] = useState('')
   const [copied, setCopied] = useState(false)
   const terminalEndRef = useRef(null)
 
-  const email = 'lavi.yaron16@gmail.com'
+  const email = personal?.email || 'lavi.yaron16@gmail.com'
+  const promptString = `${terminal?.user || 'yaron'}@${terminal?.host || 'platform-node-01'}:~$`
 
   const copyEmail = () => {
     navigator.clipboard.writeText(email)
@@ -174,90 +85,40 @@ export default function App() {
 
     let response = []
 
-    switch (trimmed) {
-      case 'help':
-        response = [
-          {
-            type: 'output',
-            text: `Available platform commands:
-  • whoami    : Print current engineer profile and credentials
-  • skills    : Inspect core technical stacks and platform competencies
-  • projects  : List production engineering projects and architectures
-  • contact   : Display connection endpoints and communications
-  • clear     : Flush terminal scrollback buffer
-  • status    : Check cluster health and runtime telemetry`
-          }
-        ]
-        break
+    if (trimmed === 'clear') {
+      setTerminalHistory([])
+      return
+    }
 
-      case 'whoami':
-        response = [
-          {
-            type: 'output',
-            text: 'Yaron Lavi — DevOps & Platform Engineer | CS Undergrad\nSpecializing in Kubernetes, OpenShift, GitOps, declarative systems, and platform infrastructure.'
-          }
-        ]
-        break
+    if (trimmed === '') {
+      response = []
+    } else if (trimmed === 'help') {
+      const customCmdList = Object.keys(terminal?.commands || {})
+        .map((c) => `  • ${c.padEnd(10, ' ')} : Show ${c} details`)
+        .join('\n')
 
-      case 'skills':
-        response = [
-          {
-            type: 'output',
-            text: `PLATFORM & ORCHESTRATION : Kubernetes, OpenShift, kro, Kanister\nGITOPS & IAC             : Helm, ArgoCD, Kyverno, Terraform, Ansible, Vault\nOBSERVABILITY & LOGGING  : Prometheus, Grafana, Loki, Mimir\nLANGUAGES & SCRIPTING    : Go, Python, Bash`
-          }
-        ]
-        break
-
-      case 'projects':
-        response = [
-          {
-            type: 'output',
-            text: `[1] Echo               : OpenShift DB Backup & DR orchestrator (kro, Kanister, S3)
-[2] Multi-Cluster GitOps: Enterprise GitOps control plane (Helm, ArgoCD, Kyverno)
-[3] AmanDate           : Full-stack platform (FastAPI, React, Docker)
-[4] Voyager            : Cloud-native observability stack (Prometheus, Loki, Grafana, Mimir)`
-          }
-        ]
-        break
-
-      case 'status':
-        response = [
-          {
-            type: 'output',
-            text: `System State: OK
-Cluster: k8s-prod-us-east-1
-Nodes: 12 Ready | Control Plane: Healthy (100%)
-GitOps Sync: Synced (ArgoCD v2.11)
-Kyverno Policies: 42 Enforced | 0 Violations`
-          }
-        ]
-        break
-
-      case 'contact':
-        response = [
-          {
-            type: 'output',
-            text: `Email: ${email}\nGitHub: https://github.com/YaronL16`
-          }
-        ]
-        break
-
-      case 'clear':
-        setTerminalHistory([])
-        return
-
-      case '':
-        response = []
-        break
-
-      default:
-        response = [
-          {
-            type: 'error',
-            text: `bash: command not found: "${trimmed}". Type "help" to inspect valid commands.`
-          }
-        ]
-        break
+      response = [
+        {
+          type: 'output',
+          text: `Available platform commands:
+${customCmdList}
+  • clear      : Flush terminal scrollback buffer`
+        }
+      ]
+    } else if (terminal?.commands && terminal.commands[trimmed]) {
+      response = [
+        {
+          type: 'output',
+          text: terminal.commands[trimmed]
+        }
+      ]
+    } else {
+      response = [
+        {
+          type: 'error',
+          text: `bash: command not found: "${trimmed}". Type "help" to inspect valid commands.`
+        }
+      ]
     }
 
     setTerminalHistory((prev) => [...prev, newEntry, ...response])
@@ -276,8 +137,8 @@ Kyverno Policies: 42 Enforced | 0 Violations`
 
   const filteredSkills =
     activeCategory === 'all'
-      ? SKILLS
-      : SKILLS.filter((s) => s.category === activeCategory)
+      ? skills
+      : skills.filter((s) => s.category === activeCategory)
 
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-200 selection:bg-cyan-500/20 selection:text-cyan-300">
@@ -297,11 +158,11 @@ Kyverno Policies: 42 Enforced | 0 Violations`
             </div>
             <div>
               <span className="font-bold tracking-tight text-white block text-sm sm:text-base">
-                Yaron Lavi
+                {personal.name}
               </span>
               <span className="text-[11px] text-cyan-400 font-mono flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                platform-engineer
+                {personal.handle}
               </span>
             </div>
           </div>
@@ -325,15 +186,17 @@ Kyverno Policies: 42 Enforced | 0 Violations`
           </nav>
 
           <div className="flex items-center gap-3">
-            <a
-              href="https://github.com/YaronL16"
-              target="_blank"
-              rel="noreferrer"
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition"
-              title="GitHub Profile"
-            >
-              <Github className="w-4 h-4" />
-            </a>
+            {personal.github && (
+              <a
+                href={personal.github}
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition"
+                title="GitHub Profile"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            )}
             <button
               onClick={copyEmail}
               className="hidden sm:flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/20 transition"
@@ -351,7 +214,7 @@ Kyverno Policies: 42 Enforced | 0 Violations`
         <section className="space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono">
             <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-            <span>DevOps & Platform Engineer • B.Sc. Computer Science Student</span>
+            <span>{personal.statusBadge}</span>
           </div>
 
           <div className="space-y-4 max-w-3xl">
@@ -362,32 +225,23 @@ Kyverno Policies: 42 Enforced | 0 Violations`
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-400 leading-relaxed font-normal">
-              Specializing in <span className="text-slate-200 font-semibold">Kubernetes</span>,{' '}
-              <span className="text-slate-200 font-semibold">OpenShift</span>,{' '}
-              <span className="text-slate-200 font-semibold">GitOps</span>, and policy-driven distributed systems.
-              Bridging developer velocity with high-assurance platform reliability, disaster recovery automation, and telemetry.
+              {personal.bio}
             </p>
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-4xl pt-2">
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
-              <div className="text-2xl font-bold font-mono text-cyan-400">Multi-Cluster</div>
-              <div className="text-xs text-slate-400 mt-0.5">GitOps & Policy Automation</div>
+          {metrics.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-4xl pt-2">
+              {metrics.map((m, idx) => (
+                <div key={idx} className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
+                  <div className={`text-2xl font-bold font-mono ${m.accent || 'text-cyan-400'}`}>
+                    {m.value}
+                  </div>
+                  <div className="text-xs text-slate-400 mt-0.5">{m.label}</div>
+                </div>
+              ))}
             </div>
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
-              <div className="text-2xl font-bold font-mono text-emerald-400">Zero DR Drill</div>
-              <div className="text-xs text-slate-400 mt-0.5">Automated kro & Kanister DR</div>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
-              <div className="text-2xl font-bold font-mono text-purple-400">FastAPI + React</div>
-              <div className="text-xs text-slate-400 mt-0.5">Modern Full-Stack Delivery</div>
-            </div>
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
-              <div className="text-2xl font-bold font-mono text-amber-400">Telemetry</div>
-              <div className="text-xs text-slate-400 mt-0.5">Prometheus, Loki, Mimir</div>
-            </div>
-          </div>
+          )}
 
           {/* Quick CTA */}
           <div className="flex flex-wrap gap-4 pt-2">
@@ -425,7 +279,7 @@ Kyverno Policies: 42 Enforced | 0 Violations`
             <div className="flex items-center gap-2">
               <span className="text-xs text-slate-400 font-mono">Quick Run:</span>
               <div className="flex gap-1.5 flex-wrap">
-                {['whoami', 'skills', 'projects', 'status', 'clear'].map((cmd) => (
+                {(terminal?.quickButtons || ['whoami', 'skills', 'projects', 'status', 'clear']).map((cmd) => (
                   <button
                     key={cmd}
                     onClick={() => handleCommand(cmd)}
@@ -445,7 +299,9 @@ Kyverno Policies: 42 Enforced | 0 Violations`
                 <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-                <span className="text-xs text-slate-400 ml-2 select-none">yaron@platform-node-01:~</span>
+                <span className="text-xs text-slate-400 ml-2 select-none">
+                  {terminal?.user || 'yaron'}@{terminal?.host || 'platform-node-01'}:~
+                </span>
               </div>
               <div className="text-[11px] text-slate-500 hidden sm:block">zsh • UTF-8</div>
             </div>
@@ -459,7 +315,7 @@ Kyverno Policies: 42 Enforced | 0 Violations`
                   )}
                   {item.type === 'input' && (
                     <div className="flex items-center gap-2 text-slate-100">
-                      <span className="text-cyan-400 font-semibold select-none">yaron@platform-node-01:~$</span>
+                      <span className="text-cyan-400 font-semibold select-none">{promptString}</span>
                       <span>{item.text}</span>
                     </div>
                   )}
@@ -484,13 +340,13 @@ Kyverno Policies: 42 Enforced | 0 Violations`
               className="bg-[#0e131d] px-4 py-3 border-t border-slate-800 flex items-center gap-2"
             >
               <span className="text-cyan-400 font-semibold select-none text-xs sm:text-sm">
-                yaron@platform-node-01:~$
+                {promptString}
               </span>
               <input
                 type="text"
                 value={terminalInput}
                 onChange={(e) => setTerminalInput(e.target.value)}
-                placeholder="type a command (try 'whoami', 'skills', 'projects', 'help')..."
+                placeholder={`type a command (try 'whoami', 'skills', 'projects', 'help')...`}
                 className="flex-1 bg-transparent border-none outline-none text-slate-100 text-xs sm:text-sm font-mono placeholder:text-slate-600 focus:ring-0"
                 autoComplete="off"
                 spellCheck="false"
@@ -519,7 +375,7 @@ Kyverno Policies: 42 Enforced | 0 Violations`
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {PROJECTS.map((project) => (
+            {projects.map((project) => (
               <div
                 key={project.id}
                 className="group relative rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-cyan-500/40 p-6 transition-all duration-200 flex flex-col justify-between hover:bg-slate-900/80 shadow-lg hover:shadow-cyan-500/5"
@@ -544,17 +400,19 @@ Kyverno Policies: 42 Enforced | 0 Violations`
                     </p>
                   </div>
 
-                  <div className="space-y-2 pt-1">
-                    <div className="text-xs font-mono text-slate-400 uppercase tracking-wider">Key Highlights:</div>
-                    <ul className="space-y-1.5 text-xs text-slate-300 font-sans">
-                      {project.highlights.map((h, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {project.highlights && project.highlights.length > 0 && (
+                    <div className="space-y-2 pt-1">
+                      <div className="text-xs font-mono text-slate-400 uppercase tracking-wider">Key Highlights:</div>
+                      <ul className="space-y-1.5 text-xs text-slate-300 font-sans">
+                        {project.highlights.map((h, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-6 mt-4 border-t border-slate-800/70">
@@ -583,7 +441,7 @@ Kyverno Policies: 42 Enforced | 0 Violations`
             </div>
             {/* Filter Tabs */}
             <div className="flex flex-wrap gap-1.5">
-              {SKILL_CATEGORIES.map((category) => (
+              {skillCategories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
@@ -631,8 +489,8 @@ Kyverno Policies: 42 Enforced | 0 Violations`
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {PERSONAL_HIGHLIGHTS.map((item, index) => {
-              const Icon = item.icon
+            {personalHighlights.map((item, index) => {
+              const Icon = ICON_MAP[item.iconName] || Sparkles
               return (
                 <div
                   key={index}
@@ -688,15 +546,17 @@ Kyverno Policies: 42 Enforced | 0 Violations`
                 <span>{copied ? 'Copied to Clipboard!' : email}</span>
               </button>
 
-              <a
-                href="https://github.com/YaronL16"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition font-medium text-sm w-full sm:w-auto justify-center"
-              >
-                <Github className="w-4 h-4" />
-                <span>GitHub</span>
-              </a>
+              {personal.github && (
+                <a
+                  href={personal.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition font-medium text-sm w-full sm:w-auto justify-center"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>GitHub</span>
+                </a>
+              )}
             </div>
 
             {/* Toast popup */}
@@ -714,14 +574,14 @@ Kyverno Policies: 42 Enforced | 0 Violations`
       <footer className="border-t border-slate-800/80 mt-20 py-8 bg-[#05070a] text-xs text-slate-500 font-mono">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} Yaron Lavi.</span>
+            <span>© {new Date().getFullYear()} {personal.name}.</span>
             <span>•</span>
-            <span className="text-slate-400">DevOps & Platform Engineering</span>
+            <span className="text-slate-400">{footer?.credit || 'DevOps & Platform Engineering'}</span>
           </div>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-emerald-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              Automated CI/CD via GitHub Pages
+              {footer?.systemStatus || 'Automated CI/CD via GitHub Pages'}
             </span>
           </div>
         </div>
