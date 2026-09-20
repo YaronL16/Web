@@ -29,7 +29,10 @@ import {
   Bot,
   X,
   Languages,
-  Globe
+  Globe,
+  Camera,
+  Award,
+  Presentation
 } from 'lucide-react'
 
 // Import all editable portfolio content from root portfolio.config.js
@@ -42,6 +45,7 @@ const ICON_MAP = {
   Music2,
   Languages,
   Globe,
+  Camera,
   Terminal: TerminalIcon,
   Server,
   Shield,
@@ -63,6 +67,8 @@ export default function App() {
     metrics = [],
     terminal,
     projects = [],
+    certifications = [],
+    speaking = [],
     skillCategories = [],
     skills = [],
     personalHighlights = [],
@@ -214,6 +220,11 @@ ${customCmdList}
             <a href="#skills" className="hover:text-cyan-400 transition-colors">
               Skills
             </a>
+            {(certifications.length > 0 || speaking.length > 0) && (
+              <a href="#credentials" className="hover:text-cyan-400 transition-colors">
+                Credentials
+              </a>
+            )}
             <a href="#highlights" className="hover:text-cyan-400 transition-colors">
               Highlights
             </a>
@@ -514,6 +525,89 @@ ${customCmdList}
             ))}
           </div>
         </section>
+
+        {/* Certifications & Public Speaking */}
+        {(certifications.length > 0 || speaking.length > 0) && (
+          <section id="credentials" className="space-y-8 scroll-mt-24">
+            <div className="border-b border-slate-800/80 pb-4">
+              <div className="text-xs font-mono text-cyan-400 tracking-wider uppercase">Validation & Community</div>
+              <h2 className="text-3xl font-bold text-white tracking-tight mt-1">Certifications & Public Speaking</h2>
+              <p className="text-sm text-slate-400 max-w-xl mt-1">
+                Industry-recognized cloud architecture credentials and technical community presentations.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Certifications Card */}
+              {certifications.length > 0 && (
+                <div className="rounded-2xl bg-slate-900/40 border border-slate-800/80 p-6 space-y-4">
+                  <div className="flex items-center gap-2.5 pb-2 border-b border-slate-800/60">
+                    <Award className="w-5 h-5 text-cyan-400" />
+                    <h3 className="text-base font-bold text-white tracking-tight">Cloud Certifications</h3>
+                  </div>
+                  <div className="space-y-3">
+                    {certifications.map((cert, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 flex items-center justify-between"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-xl" role="img" aria-label={cert.name}>
+                            {cert.icon || '📜'}
+                          </span>
+                          <div>
+                            <div className="text-sm font-semibold text-white">{cert.name}</div>
+                            <div className="text-[11px] font-mono text-slate-400">{cert.issuer}</div>
+                          </div>
+                        </div>
+                        <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 font-medium">
+                          {cert.code}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Public Speaking Card */}
+              {speaking.length > 0 && (
+                <div className="rounded-2xl bg-slate-900/40 border border-slate-800/80 p-6 space-y-4 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2.5 pb-2 border-b border-slate-800/60">
+                      <Presentation className="w-5 h-5 text-emerald-400" />
+                      <h3 className="text-base font-bold text-white tracking-tight">Public Speaking</h3>
+                    </div>
+                    <div className="space-y-4 mt-4">
+                      {speaking.map((talk, idx) => (
+                        <div key={idx} className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-2">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-mono text-emerald-400 font-semibold">{talk.event}</span>
+                            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">
+                              {talk.year}
+                            </span>
+                          </div>
+                          <div className="text-sm font-bold text-white">{talk.topic}</div>
+                          <p className="text-xs text-slate-300 leading-relaxed font-sans">{talk.description}</p>
+                          {talk.link && (
+                            <a
+                              href={talk.link}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition pt-1"
+                            >
+                              <span>View Event Post</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
 
         {/* Beyond the Terminal: Hobbies & Languages */}
         <section id="highlights" className="space-y-8 scroll-mt-24">

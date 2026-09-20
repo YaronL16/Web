@@ -24,7 +24,7 @@ export const portfolioConfig = {
     name: "Yaron Lavi",
     handle: "platform-engineer",
     role: "DevOps & Platform Engineer",
-    education: "B.Sc. Computer Science Student",
+    education: "B.Sc. Computer Science • The College of Management Academic Studies (Expected 2028)",
     email: "lavyaron@gmail.com",
     github: "https://github.com/YaronL16",
     linkedin: "https://www.linkedin.com/in/yaron-lavi16/",
@@ -36,23 +36,23 @@ export const portfolioConfig = {
   // Key stats / metric highlights displayed under hero
   metrics: [
     {
-      value: "Multi-Cluster",
-      label: "GitOps & Policy Automation",
+      value: "15+ HA Clusters",
+      label: "Production Multi-Cluster Fleet",
       accent: "text-cyan-400",
     },
     {
-      value: "Zero DR Drill",
-      label: "Automated kro & Kanister DR",
+      value: "$300K+ Saved",
+      label: "In-House kro & Kanister DR Platform",
       accent: "text-emerald-400",
     },
     {
-      value: "FastAPI + React",
-      label: "Modern Full-Stack Delivery",
+      value: "100+ Devs",
+      label: "Azure to AWS GitOps Migration",
       accent: "text-purple-400",
     },
     {
-      value: "Telemetry",
-      label: "Prometheus, Loki, Mimir",
+      value: "70% Footprint",
+      label: "Telemetry Compute Optimization",
       accent: "text-amber-400",
     },
   ],
@@ -67,31 +67,43 @@ export const portfolioConfig = {
       'Type "help" to inspect available commands or click quick action chips above.',
     ],
     // Quick action buttons displayed above terminal
-    quickButtons: ["whoami", "skills", "projects", "status", "contact", "clear"],
+    quickButtons: ["whoami", "skills", "projects", "certs", "speaking", "status", "contact", "clear"],
     // Commands and their terminal output
     commands: {
-      whoami: `Yaron Lavi — DevOps & Platform Engineer | CS Undergrad
+      whoami: `Yaron Lavi — DevOps & Platform Engineer
+B.Sc. Computer Science Student @ The College of Management Academic Studies (Expected 2028)
 Specializing in Kubernetes, OpenShift, GitOps, declarative systems, and platform infrastructure.`,
 
-      skills: `PLATFORM & ORCHESTRATION : Kubernetes, OpenShift, kro, Kanister
-GITOPS & IAC             : Helm, ArgoCD, Kyverno, Terraform, Ansible, Vault
-OBSERVABILITY & LOGGING  : Prometheus, Grafana, Loki, Mimir
+      skills: `CONTAINER & PLATFORM     : Kubernetes, OpenShift, RKE2, Helm, Docker, kro, Kanister
+GITOPS & CI/CD           : ArgoCD, Argo Workflows, GitHub Actions, Azure DevOps, Jenkins, Kyverno
+CLOUD & IAC              : AWS, Azure, Terraform, Ansible, Vault, VMware vSphere, NetApp, Linux
+OBSERVABILITY & LOGGING  : Prometheus, Grafana, Mimir, Loki, Zabbix
 LANGUAGES & SCRIPTING    : Go, Python, Bash`,
 
       projects: `[1] Echo               : OpenShift DB Backup & DR orchestrator (kro, Kanister, S3)
 [2] Multi-Cluster GitOps: Enterprise GitOps control plane (Helm, ArgoCD, Kyverno)
-[3] AmanDate           : Full-stack platform (FastAPI, React, Docker)
-[4] Voyager            : Cloud-native observability stack (Prometheus, Loki, Grafana, Mimir)`,
+[3] KubeAI LLM Platform: Self-hosted inference on OpenShift with NVIDIA MIG GPU partitioning
+[4] AmanDate           : Full-stack platform (FastAPI, React, Docker)
+[5] Voyager            : Cloud-native observability stack (Prometheus, Loki, Grafana, Mimir)`,
+
+      certs: `• Microsoft Certified: Azure Solutions Architect Expert (AZ-305)
+• Microsoft Certified: Azure Administrator Associate (AZ-104)
+• Microsoft Certified: Azure Developer Associate (AZ-204)`,
+
+      speaking: `• Red Hat Open Tech Event (2026) : Technical Speaker
+  Topic: OpenShift multi-tenancy, workload isolation & declarative GitOps governance at scale
+  Link : https://lnkd.in/p/duEa7mqq`,
 
       status: `System State: OK
 Cluster: k8s-prod-us-east-1
-Nodes: 12 Ready | Control Plane: Healthy (100%)
+Nodes: 15+ Ready | Control Plane: Healthy (100%)
 GitOps Sync: Synced (ArgoCD v2.11)
 Kyverno Policies: 42 Enforced | 0 Violations`,
 
-      contact: `Email  : lavi.yaron16@gmail.com
-GitHub : https://github.com/YaronL16
-Status : Open to platform & infrastructure engineering conversations`,
+      contact: `Email   : lavyaron@gmail.com
+GitHub  : https://github.com/YaronL16
+LinkedIn: https://www.linkedin.com/in/yaron-lavi16/
+Status  : Open to platform & infrastructure engineering conversations`,
     },
   },
 
@@ -140,6 +152,20 @@ Status : Open to platform & infrastructure engineering conversations`,
       tags: ["FastAPI", "React", "Python", "Docker", "PostgreSQL", "Tailwind CSS"],
     },
     {
+      id: "kubeai",
+      title: "KubeAI LLM Inference Platform",
+      category: "AI Infrastructure & GPU Orchestration",
+      status: "Production Deployed",
+      description:
+        "Self-hosted large language model inference platform engineered with KubeAI on OpenShift. Features hardware-level GPU partitioning via NVIDIA Multi-Instance GPU (MIG) to serve concurrent foundation models with high compute density and strict latency guarantees.",
+      highlights: [
+        "NVIDIA MIG hardware slicing maximizing multi-tenant GPU compute density",
+        "Declarative model lifecycles and autoscaling using KubeAI custom resources",
+        "Low-latency inference routing with Prometheus telemetry and alerting integration",
+      ],
+      tags: ["OpenShift", "KubeAI", "NVIDIA MIG", "Kubernetes", "PyTorch", "vLLM", "Prometheus"],
+    },
+    {
       id: "voyager",
       title: "Voyager",
       category: "Cloud-Native Observability",
@@ -155,11 +181,47 @@ Status : Open to platform & infrastructure engineering conversations`,
     },
   ],
 
+  // Cloud & Industry Certifications
+  certifications: [
+    {
+      name: "Azure Solutions Architect Expert",
+      code: "AZ-305",
+      issuer: "Microsoft",
+      icon: "☁️",
+    },
+    {
+      name: "Azure Administrator Associate",
+      code: "AZ-104",
+      issuer: "Microsoft",
+      icon: "🛡️",
+    },
+    {
+      name: "Azure Developer Associate",
+      code: "AZ-204",
+      issuer: "Microsoft",
+      icon: "⚡",
+    },
+  ],
+
+  // Technical Speaking Engagements
+  speaking: [
+    {
+      event: "Red Hat Open Tech Event",
+      year: "2026",
+      role: "Technical Speaker",
+      topic: "OpenShift Multi-Tenancy & Declarative GitOps Governance at Scale",
+      link: "https://lnkd.in/p/duEa7mqq",
+      description:
+        "Delivered a technical presentation on OpenShift multi-tenancy architectures, workload isolation, and declarative GitOps governance at scale to industry engineers and platform leaders.",
+    },
+  ],
+
   // Skill Categories for the Filter Bar
   skillCategories: [
     { id: "all", name: "All Skills" },
-    { id: "orchestration", name: "Orchestration & Cloud" },
-    { id: "gitops", name: "GitOps & IaC" },
+    { id: "orchestration", name: "Orchestration & Platform" },
+    { id: "gitops", name: "GitOps & CI/CD" },
+    { id: "cloud", name: "Cloud & Infrastructure" },
     { id: "observability", name: "Observability & Telemetry" },
     { id: "languages", name: "Languages & Core" },
   ],
@@ -168,18 +230,30 @@ Status : Open to platform & infrastructure engineering conversations`,
   skills: [
     { name: "Kubernetes", category: "orchestration", level: "Advanced", icon: "☸️" },
     { name: "OpenShift", category: "orchestration", level: "Advanced", icon: "🔴" },
+    { name: "RKE2", category: "orchestration", level: "Advanced", icon: "🤠" },
+    { name: "Docker", category: "orchestration", level: "Advanced", icon: "🐳" },
     { name: "kro", category: "orchestration", level: "Intermediate", icon: "⚙️" },
     { name: "Kanister", category: "orchestration", level: "Advanced", icon: "📦" },
-    { name: "Helm", category: "gitops", level: "Advanced", icon: "⎈" },
     { name: "ArgoCD", category: "gitops", level: "Advanced", icon: "🐙" },
+    { name: "Argo Workflows", category: "gitops", level: "Advanced", icon: "🔄" },
+    { name: "Helm", category: "gitops", level: "Advanced", icon: "⎈" },
+    { name: "GitHub Actions", category: "gitops", level: "Advanced", icon: "⚡" },
     { name: "Kyverno", category: "gitops", level: "Advanced", icon: "🛡️" },
-    { name: "Terraform", category: "gitops", level: "Advanced", icon: "🌍" },
-    { name: "Ansible", category: "gitops", level: "Advanced", icon: "📜" },
-    { name: "Vault", category: "gitops", level: "Proficient", icon: "🔐" },
+    { name: "Terraform", category: "cloud", level: "Advanced", icon: "🌍" },
+    { name: "Ansible", category: "cloud", level: "Advanced", icon: "📜" },
+    { name: "AWS", category: "cloud", level: "Advanced", icon: "☁️" },
+    { name: "Azure", category: "cloud", level: "Advanced", icon: "🔷" },
+    { name: "VMware vSphere", category: "cloud", level: "Advanced", icon: "🖥️" },
+    { name: "NetApp", category: "cloud", level: "Intermediate", icon: "💾" },
+    { name: "Linux", category: "cloud", level: "Advanced", icon: "🐧" },
+    { name: "Vault", category: "cloud", level: "Proficient", icon: "🔐" },
+    { name: "Azure DevOps", category: "gitops", level: "Proficient", icon: "🚀" },
+    { name: "Jenkins", category: "gitops", level: "Proficient", icon: "🏗️" },
     { name: "Prometheus", category: "observability", level: "Advanced", icon: "🔥" },
     { name: "Grafana", category: "observability", level: "Advanced", icon: "📊" },
     { name: "Loki", category: "observability", level: "Advanced", icon: "🪵" },
     { name: "Mimir", category: "observability", level: "Intermediate", icon: "📈" },
+    { name: "Zabbix", category: "observability", level: "Advanced", icon: "📡" },
     { name: "Go", category: "languages", level: "Proficient", icon: "🔷" },
     { name: "Python", category: "languages", level: "Advanced", icon: "🐍" },
     { name: "Bash", category: "languages", level: "Advanced", icon: "🐚" },
@@ -187,6 +261,13 @@ Status : Open to platform & infrastructure engineering conversations`,
 
   // Personal Highlights & Passions Outside Tech
   personalHighlights: [
+    {
+      title: "Photography",
+      tagline: "Visual storytelling",
+      iconName: "Camera",
+      accent: "from-rose-500/20 to-pink-500/10 border-rose-500/30",
+      description: "Street, architecture, and landscape composition focusing on perspective, geometry, and natural light.",
+    },
     {
       title: "Calisthenics",
       tagline: "Bodyweight training",

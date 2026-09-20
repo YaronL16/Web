@@ -1,7 +1,7 @@
 ---
 name: yaron-profile-sync
 description: >-
-  Use this skill whenever editing, updating, summarizing, or adding content, biography details, work experience, projects, skills, certifications, or professional history about Yaron Lavi (the portfolio author/owner) in portfolio.config.js or documentation. Guides reading Yaron's LinkedIn profile (https://www.linkedin.com/in/yaron-lavi16/) for verified details while strictly enforcing the complete omission of any military, IDF, or defense force affiliations.
+  Use this skill whenever editing, updating, summarizing, or adding content, biography details, work experience, projects, skills, certifications, or professional history about Yaron Lavi (the portfolio author/owner) in portfolio.config.js or documentation. Guides consulting Yaron's verified resume (resources/resume.md) as primary ground truth (and LinkedIn profile https://www.linkedin.com/in/yaron-lavi16/ as secondary reference) while strictly enforcing the complete omission of any military, IDF, or defense force affiliations.
 ---
 
 # Yaron Profile & Content Sync Skill
@@ -10,15 +10,15 @@ Use this skill when modifying, updating, or expanding biographical data, profess
 
 ---
 
-## 1. Primary Source of Truth: LinkedIn
+## 1. Primary Sources of Truth: Local Resume & LinkedIn
 
 When gathering or verifying Yaron's professional background, education, work experience, certifications, and technical domains:
 
-* **Official Profile URL:** [https://www.linkedin.com/in/yaron-lavi16/](https://www.linkedin.com/in/yaron-lavi16/)
-* **Access Protocol:**
-  - Standard programmatic HTTP fetches to LinkedIn often return HTTP `999` due to platform anti-scraping protections.
-  - Use browser navigation tools (such as Chrome DevTools MCP or `/browser`) or web search queries when retrieving live profile details.
-  - If access is blocked or unavailable, ask the user to provide or confirm the specific details from their LinkedIn profile.
+1. **Primary Ground Truth (Local & Offline):**  
+   Read [`resources/resume.md`](./resources/resume.md). This file contains verified technical details, platform engineering achievements, cloud certifications, speaking engagements, and academic background without platform authwall restrictions.
+2. **Secondary / External Reference:**  
+   [https://www.linkedin.com/in/yaron-lavi16/](https://www.linkedin.com/in/yaron-lavi16/)
+   - Note: LinkedIn anti-scraping blocks direct programmatic HTTP requests (HTTP `999` / Authwall). Always prioritize `resources/resume.md` or ask the user if external sync is needed.
 
 ---
 

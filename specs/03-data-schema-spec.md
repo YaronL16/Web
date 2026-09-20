@@ -13,11 +13,29 @@ export interface PortfolioConfig {
   metrics?: MetricItem[];
   terminal: TerminalConfig;
   projects: ProjectItem[];
+  certifications?: CertificationItem[];
+  speaking?: SpeakingItem[];
   skillCategories: SkillCategory[];
   skills: SkillItem[];
   personalHighlights: PersonalHighlightItem[];
   spokenLanguages?: SpokenLanguageItem[];
   footer?: FooterConfig;
+}
+
+export interface CertificationItem {
+  name: string;
+  code: string; // e.g. "AZ-305", "AZ-104", "AZ-204"
+  issuer: string;
+  icon?: string;
+}
+
+export interface SpeakingItem {
+  event: string;
+  year: string;
+  role: string;
+  topic: string;
+  link?: string;
+  description: string;
 }
 
 export interface SpokenLanguageItem {
@@ -107,6 +125,7 @@ To preserve clean separation without runtime bundle bloat, icons in `personalHig
 | `Dumbbell` | `Dumbbell` | `Sparkles` |
 | `GlassWater` | `GlassWater` | `Sparkles` |
 | `Music2` | `Music2` | `Sparkles` |
+| `Camera` | `Camera` | `Sparkles` |
 | `Terminal` | `TerminalIcon` | `Sparkles` |
 | `Server` | `Server` | `Sparkles` |
 | `Shield` | `Shield` | `Sparkles` |
