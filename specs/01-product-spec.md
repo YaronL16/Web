@@ -7,7 +7,7 @@ The portfolio serves as the primary technical representation and engineering sho
 Rather than an ordinary static resume website, the platform functions as an interactive, production-grade cloud-native demonstration embodying:
 - Declarative systems thinking and GitOps methodologies.
 - Transparent, spec-driven engineering practices.
-- Deep competencies in Kubernetes, OpenShift, policy enforcement, disaster recovery, and telemetry.
+- Deep competencies in Kubernetes, OpenShift, cloud-native architecture, disaster recovery, and telemetry.
 
 ---
 
@@ -15,7 +15,7 @@ Rather than an ordinary static resume website, the platform functions as an inte
 
 | Persona | Motivation | Key Evaluation Criteria |
 | :--- | :--- | :--- |
-| **Staff / Principal Platform Engineers** | Assessing architectural rigor and distributed systems depth. | Real-world problem solving (disaster recovery, multi-cluster GitOps, admission policies). |
+| **Staff / Principal Platform Engineers** | Assessing architectural rigor and distributed systems depth. | Real-world problem solving (disaster recovery, multi-cluster GitOps, developer platforms). |
 | **Engineering Managers / Tech Leads** | Evaluating technical breadth, velocity, and communication. | Code cleanliness, automation maturity, and adherence to modern development practices. |
 | **Open-Source Collaborators** | Finding shared platform interests and tooling synergies. | Observability stacks, Kubernetes operator paradigms (`kro`, `Kanister`), and clean documentation. |
 
@@ -39,7 +39,7 @@ Rather than an ordinary static resume website, the platform functions as an inte
   - `whoami`: Engineer identity and specialization.
   - `skills`: Categorized technical toolchain summary.
   - `projects`: Summary of featured engineering systems.
-  - `status`: Simulated cluster telemetry and policy sync state.
+  - `status`: Simulated cluster telemetry and GitOps sync state.
   - `contact`: Connectivity endpoints and communication links.
   - `help`: Dynamic list of all registered commands.
   - `clear`: Reset terminal scrollback.
@@ -48,7 +48,7 @@ Rather than an ordinary static resume website, the platform functions as an inte
 ### 3.4 Key Engineering Projects
 - **Featured Systems:**
   1. **Echo:** OpenShift Database Backup & Disaster Recovery orchestrator utilizing `kro`, `Kanister`, and S3.
-  2. **Multi-Cluster GitOps:** Scaled platform control plane using Helm, ArgoCD ApplicationSets, and Kyverno policy enforcement.
+  2. **Multi-Cluster GitOps:** Scaled platform control plane using Helm, ArgoCD ApplicationSets, and automated drift remediation.
   3. **Self-Service Developer Platform:** Automated multi-tenant workspace provisioning across Kubernetes, GitHub, ArgoCD, Harbor, Vault, and Keycloak via custom Terraform modules.
 - **Card Metadata:** Project category, production grade status, architecture overview, bullet highlights, and technology tags.
 

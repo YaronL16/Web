@@ -31,7 +31,7 @@ export const portfolioConfig = {
     linkedin: "https://www.linkedin.com/in/yaron-lavi16/",
     statusBadge: "DevOps & Platform Engineer • B.Sc. Computer Science Student",
     headline: "Architecting resilient, declarative cloud-native platforms.",
-    bio: "Specializing in Kubernetes, OpenShift, GitOps, and policy-driven distributed systems. Bridging developer velocity with high-assurance platform reliability, disaster recovery automation, and telemetry.",
+    bio: "Specializing in Kubernetes, OpenShift, GitOps, and cloud-native infrastructure. Bridging developer velocity with platform reliability, disaster recovery automation, and telemetry.",
   },
 
   // Key stats / metric highlights displayed under hero
@@ -76,13 +76,13 @@ B.Sc. Computer Science Student @ The College of Management Academic Studies (Exp
 Specializing in Kubernetes, OpenShift, GitOps, declarative systems, and platform infrastructure.`,
 
       skills: `CONTAINER & PLATFORM : Kubernetes, OpenShift, Helm, Docker, RKE2 | Secondary: Kanister, kro
-GITOPS & CI/CD       : ArgoCD, Argo Workflows, GitHub Actions, Kyverno | Secondary: Azure DevOps, Jenkins
+GITOPS & CI/CD       : ArgoCD, Argo Workflows, GitHub Actions | Secondary: Azure DevOps, Jenkins
 CLOUD & IAC          : AWS, Azure, Terraform, Ansible, Linux | Secondary: VMware vSphere, Vault, NetApp
 OBSERVABILITY        : Prometheus, Grafana, Loki, Mimir | Secondary: Zabbix (familiar)
 LANGUAGES & SCRIPTING: Python, Bash, Go`,
 
       projects: `[1] Echo                   : OpenShift DB Backup & DR orchestrator (kro, Kanister, S3)
-[2] Multi-Cluster GitOps   : Enterprise GitOps control plane (Helm, ArgoCD, Kyverno)
+[2] Multi-Cluster GitOps   : Enterprise GitOps control plane (Helm, ArgoCD, ApplicationSets)
 [3] Developer Platform     : Automated self-service tenant provisioning (Terraform, Vault, Keycloak)`,
 
       certs: `• Microsoft Certified: Azure Solutions Architect Expert (AZ-305)
@@ -97,7 +97,7 @@ LANGUAGES & SCRIPTING: Python, Bash, Go`,
 Cluster: k8s-prod-us-east-1
 Nodes: 15+ Ready | Control Plane: Healthy (100%)
 GitOps Sync: Synced (ArgoCD v2.11)
-Kyverno Policies: 42 Enforced | 0 Violations`,
+Workload Health: 100% | Zero Drift`,
 
       contact: `Email   : lavyaron@gmail.com
 GitHub  : https://github.com/YaronL16
@@ -116,7 +116,7 @@ Status  : Open to platform & infrastructure engineering conversations`,
       category: "Disaster Recovery & Orchestration",
       status: "Production Grade",
       description:
-        "OpenShift Database Backup & Disaster Recovery orchestrator built with kro (Kubernetes Resource Orchestrator), Kanister, and S3-compatible storage. Features automated multi-tenant snapshot lifecycles, declarative retention policies, and cross-cluster recovery verification.",
+        "OpenShift Database Backup & Disaster Recovery orchestrator built with kro (Kubernetes Resource Orchestrator), Kanister, and S3-compatible storage. Features automated multi-tenant snapshot lifecycles, declarative retention schedules, and cross-cluster recovery verification.",
       highlights: [
         "Declarative multi-tenant backup scheduling via custom ResourceGraph definitions",
         "Application-consistent database hooks using Kanister blueprints",
@@ -127,16 +127,16 @@ Status  : Open to platform & infrastructure engineering conversations`,
     {
       id: "gitops",
       title: "Multi-Cluster GitOps",
-      category: "Platform Architecture & Security",
+      category: "Platform Architecture & GitOps",
       status: "Active Control Plane",
       description:
-        "Enterprise multi-cluster GitOps control plane utilizing ArgoCD ApplicationSets, Helm charts, and Kyverno policy-as-code admission control to enforce declarative drift remediation, zero-trust RBAC, and automated tenant workload deployments.",
+        "Enterprise multi-cluster GitOps control plane utilizing ArgoCD ApplicationSets, Helm charts, and declarative Kubernetes controllers to automate drift remediation, zero-trust RBAC, and multi-tenant workload deployments.",
       highlights: [
         "Dynamic cluster registration and configuration distribution via ApplicationSets",
-        "Automated policy-as-code enforcement and mutate/validate webhooks via Kyverno",
+        "Automated drift remediation and declarative workload validation across cluster fleets",
         "Hermetic secret decoupling with HashiCorp Vault injection",
       ],
-      tags: ["ArgoCD", "Helm", "Kyverno", "Kubernetes", "GitOps", "Vault"],
+      tags: ["ArgoCD", "Helm", "Kubernetes", "GitOps", "ApplicationSets", "Vault"],
     },
     {
       id: "developer-platform",
@@ -201,7 +201,7 @@ Status  : Open to platform & infrastructure engineering conversations`,
       id: "gitops",
       name: "GitOps & CI/CD",
       badge: "Automated Delivery",
-      description: "Declarative continuous delivery, policy-as-code admission, and workflow automation.",
+      description: "Declarative continuous delivery, automated deployment pipelines, and workflow automation.",
     },
     {
       id: "cloud",
@@ -238,7 +238,7 @@ Status  : Open to platform & infrastructure engineering conversations`,
     { name: "ArgoCD", category: "gitops", level: "Advanced", icon: "🐙", primary: true },
     { name: "Argo Workflows", category: "gitops", level: "Advanced", icon: "🔄", primary: true },
     { name: "GitHub Actions", category: "gitops", level: "Advanced", icon: "⚡", primary: true },
-    { name: "Kyverno", category: "gitops", level: "Advanced", icon: "🛡️", primary: true },
+    { name: "Kyverno", category: "gitops", level: "Advanced", icon: "🛡️", primary: false },
     { name: "Azure DevOps", category: "gitops", level: "Intermediate", icon: "🚀", primary: false },
     { name: "Jenkins", category: "gitops", level: "Intermediate", icon: "🏗️", primary: false },
 
