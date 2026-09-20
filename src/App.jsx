@@ -95,6 +95,7 @@ export default function App() {
   const terminalBodyRef = useRef(null)
 
   const email = personal?.email || 'lavi.yaron16@gmail.com'
+  const shellName = terminal?.shell || 'yaronsh'
   const promptString = `${terminal?.user || 'yaron'}@${terminal?.host || 'platform-node-01'}:~$`
 
   const copyEmail = () => {
@@ -140,7 +141,7 @@ ${customCmdList}
       response = [
         {
           type: 'error',
-          text: `bash: command not found: "${trimmed}". Type "help" to inspect valid commands.`
+          text: `${shellName}: command not found: "${trimmed}". Type "help" to inspect valid commands.`
         }
       ]
     }
@@ -388,7 +389,7 @@ ${customCmdList}
                   {terminal?.user || 'yaron'}@{terminal?.host || 'platform-node-01'}:~
                 </span>
               </div>
-              <div className="text-[11px] text-slate-500 hidden sm:block">zsh • UTF-8</div>
+              <div className="text-[11px] text-slate-500 hidden sm:block">{shellName} • UTF-8</div>
             </div>
 
             {/* Terminal Body */}

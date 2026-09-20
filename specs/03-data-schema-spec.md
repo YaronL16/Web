@@ -74,6 +74,7 @@ export interface MetricItem {
 export interface TerminalConfig {
   user: string;
   host: string;
+  shell?: string; // Shell identifier (e.g. "yaronsh", defaults to "yaronsh")
   nodeVersion?: string;
   welcomeText: string[];
   quickButtons: string[];

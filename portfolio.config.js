@@ -62,6 +62,7 @@ export const portfolioConfig = {
   terminal: {
     user: "yaron",
     host: "platform-node-01",
+    shell: "yaronsh",
     nodeVersion: "v1.28.4",
     welcomeText: [
       "Initializing cloud platform session... Connected to platform-node-01.local [v1.28.4]",
@@ -103,6 +104,11 @@ Workload Health: 100% | Zero Drift`,
 GitHub  : https://github.com/YaronL16
 LinkedIn: https://www.linkedin.com/in/yaron-lavi16/
 Status  : Open to platform & infrastructure engineering conversations`,
+
+      yaronsh: `yaronsh v1.0.0 (x86_64-platform-node-01)
+Architecture: Declarative Platform Shell
+Session     : Active (PID: 1337, TTY: /dev/pts/0)
+Type "help" to list available platform inspection commands.`,
     },
   },
 

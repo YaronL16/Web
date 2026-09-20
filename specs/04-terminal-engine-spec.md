@@ -27,7 +27,7 @@ stateDiagram-v2
     ClearHistory --> Idle: Buffer flushed
     FormatHelp --> AppendBuffer: Display dynamic command list
     ResolveOutput --> AppendBuffer: Display custom output text
-    CommandNotFound --> AppendBuffer: Display bash-style error
+    CommandNotFound --> AppendBuffer: Display yaronsh-style error
     AppendBuffer --> ScrollTerminalBody: Internal container scrollTop
     ScrollTerminalBody --> Idle
 ```
@@ -45,12 +45,12 @@ stateDiagram-v2
 3. **Configured Commands:**
    - Any key matching `terminal.commands[normalized]` prints the associated string with line break preservation inside `<pre>` formatting.
 4. **Fallback:**
-   - Returns: `bash: command not found: "${trimmed}". Type "help" to inspect valid commands.` in red accent styling (`text-rose-400`).
+   - Returns: `${terminal.shell || 'yaronsh'}: command not found: "${trimmed}". Type "help" to inspect valid commands.` in red accent styling (`text-rose-400`).
 
 ---
 
 ## 4. UI/UX Features
 
-- **Chrome:** Window decoration styling with macOS red/amber/green window controls, node hostname, and UTF-8 encoding badge.
+- **Chrome:** Window decoration styling with macOS red/amber/green window controls, node hostname, and shell encoding badge (`${terminal.shell || 'yaronsh'} • UTF-8`).
 - **Auto-scroll:** `terminalBodyRef` automatically scrolls the internal terminal container (`scrollTop = scrollHeight`) whenever `terminalHistory` receives a new entry, keeping the outer document/window scroll position completely undisturbed.
 - **Quick-Run Chips:** Buttons above the terminal allow mobile and mouse-first users to click commands (`whoami`, `skills`, `projects`, etc.) without typing.

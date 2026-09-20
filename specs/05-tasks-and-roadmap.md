@@ -22,6 +22,9 @@
   - Authored [`specs/06-agent-orchestration-spec.md`](./06-agent-orchestration-spec.md) formalizing the 4-agent persona pipeline and handover gates.
   - Built `.agents/skills/sdd-orchestrator/SKILL.md` and `.agents/skills/guardrail-compliance-auditor/SKILL.md`.
   - Integrated orchestration methodology into `AGENTS.md` system instructions.
+- [x] **Milestone 7: Terminal Shell Customization (`yaronsh`)**
+  - Configured declarative shell name property (`shell: "yaronsh"`) in [`portfolio.config.js`](../portfolio.config.js).
+  - Updated interactive terminal engine fallback error and window chrome encoding badge to reflect `yaronsh` instead of bash/zsh.
 
 ---
 
