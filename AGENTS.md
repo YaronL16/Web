@@ -35,6 +35,16 @@ This repository follows **Spec-Driven Development**. The [`specs/`](./specs/) di
 | [`specs/03-data-schema-spec.md`](./specs/03-data-schema-spec.md) | Formal TypeScript interfaces and schema contracts for `portfolio.config.js`. |
 | [`specs/04-terminal-engine-spec.md`](./specs/04-terminal-engine-spec.md) | Interactive shell state machine and command execution pipeline. |
 | [`specs/05-tasks-and-roadmap.md`](./specs/05-tasks-and-roadmap.md) | Prioritized backlog, implementation status, and acceptance criteria. |
+| [`specs/06-agent-orchestration-spec.md`](./specs/06-agent-orchestration-spec.md) | Multi-agent orchestration topology, persona contracts, handover state machine, and audit gates. |
+
+### 2.1 Multi-Agent Orchestration Model
+Autonomous coding agents operating in this repository execute as a 4-persona pipeline:
+1. **Spec Architect Agent:** Formulates requirements and updates `specs/`.
+2. **Compliance & Guardrail Auditor Agent:** Gatekeeper validating all 4 core invariants (no military affiliations, profile accuracy, hermetic execution, content decoupling). Uses [`.agents/skills/guardrail-compliance-auditor/SKILL.md`](./.agents/skills/guardrail-compliance-auditor/SKILL.md).
+3. **Implementation Engineer Agent:** Executes declarative code/config edits strictly conforming to the spec.
+4. **Verification & Delivery Agent:** Performs non-destructive static checks and tracks remote CI/CD deployment.
+
+See [`.agents/skills/sdd-orchestrator/SKILL.md`](./.agents/skills/sdd-orchestrator/SKILL.md) and [`specs/06-agent-orchestration-spec.md`](./specs/06-agent-orchestration-spec.md) for execution details.
 
 ### Rule: Spec First
 Before implementing any architectural change, new section, or data schema modification:
@@ -59,8 +69,12 @@ Before implementing any architectural change, new section, or data schema modifi
 │
 ├── .agents/
 │   └── skills/
-│       └── yaron-profile-sync/
-│           └── SKILL.md       # Workspace skill for editing Yaron's profile & LinkedIn ground truth
+│       ├── yaron-profile-sync/
+│       │   └── SKILL.md       # Ground truth profile sync & non-negotiable guardrails
+│       ├── sdd-orchestrator/
+│       │   └── SKILL.md       # Multi-agent SDD orchestration & subagent execution
+│       └── guardrail-compliance-auditor/
+│           └── SKILL.md       # Automated invariant & compliance audit gate
 │
 ├── .github/workflows/
 │   └── deploy.yml             # Remote GitHub Actions build & deploy pipeline
@@ -71,7 +85,8 @@ Before implementing any architectural change, new section, or data schema modifi
 │   ├── 02-architecture-spec.md# Architecture & CI/CD pipeline
 │   ├── 03-data-schema-spec.md # Data contracts & schema
 │   ├── 04-terminal-engine-spec.md # Shell engine specification
-│   └── 05-tasks-and-roadmap.md# Roadmap & task backlog
+│   ├── 05-tasks-and-roadmap.md# Roadmap & task backlog
+│   └── 06-agent-orchestration-spec.md # Multi-agent orchestration specification
 │
 └── src/
     ├── main.jsx               # React DOM root entrypoint

@@ -74,11 +74,11 @@ export const portfolioConfig = {
 B.Sc. Computer Science Student @ The College of Management Academic Studies (Expected 2028)
 Specializing in Kubernetes, OpenShift, GitOps, declarative systems, and platform infrastructure.`,
 
-      skills: `CONTAINER & PLATFORM     : Kubernetes, OpenShift, RKE2, Helm, Docker, kro, Kanister
-GITOPS & CI/CD           : ArgoCD, Argo Workflows, GitHub Actions, Azure DevOps, Jenkins, Kyverno
-CLOUD & IAC              : AWS, Azure, Terraform, Ansible, Vault, VMware vSphere, NetApp, Linux
-OBSERVABILITY & LOGGING  : Prometheus, Grafana, Mimir, Loki, Zabbix
-LANGUAGES & SCRIPTING    : Go, Python, Bash`,
+      skills: `CONTAINER & PLATFORM : Kubernetes, OpenShift, Helm, Docker, RKE2 | Secondary: Kanister, kro
+GITOPS & CI/CD       : ArgoCD, Argo Workflows, GitHub Actions, Kyverno | Secondary: Azure DevOps, Jenkins
+CLOUD & IAC          : AWS, Azure, Terraform, Ansible, Linux | Secondary: VMware vSphere, Vault, NetApp
+OBSERVABILITY        : Prometheus, Grafana, Loki, Mimir | Secondary: Zabbix (familiar)
+LANGUAGES & SCRIPTING: Python, Bash, Go`,
 
       projects: `[1] Echo               : OpenShift DB Backup & DR orchestrator (kro, Kanister, S3)
 [2] Multi-Cluster GitOps: Enterprise GitOps control plane (Helm, ArgoCD, Kyverno)
@@ -216,47 +216,80 @@ Status  : Open to platform & infrastructure engineering conversations`,
     },
   ],
 
-  // Skill Categories for the Filter Bar
+  // Skill Categories & Dedicated Domain Sections
   skillCategories: [
-    { id: "all", name: "All Skills" },
-    { id: "orchestration", name: "Orchestration & Platform" },
-    { id: "gitops", name: "GitOps & CI/CD" },
-    { id: "cloud", name: "Cloud & Infrastructure" },
-    { id: "observability", name: "Observability & Telemetry" },
-    { id: "languages", name: "Languages & Core" },
+    {
+      id: "orchestration",
+      name: "Container & Platform",
+      badge: "Core Orchestration",
+      description: "Enterprise Kubernetes infrastructure, OpenShift multi-tenancy, and production container engines.",
+    },
+    {
+      id: "gitops",
+      name: "GitOps & CI/CD",
+      badge: "Automated Delivery",
+      description: "Declarative continuous delivery, policy-as-code admission, and workflow automation.",
+    },
+    {
+      id: "cloud",
+      name: "Cloud & Infrastructure",
+      badge: "IaC & Multi-Cloud",
+      description: "Terraform automation, multi-cloud AWS/Azure architecture, and enterprise virtualization.",
+    },
+    {
+      id: "observability",
+      name: "Observability & Telemetry",
+      badge: "Metrics & Logs",
+      description: "Prometheus scraping, Loki distributed log aggregation, and Grafana telemetry dashboards.",
+    },
+    {
+      id: "languages",
+      name: "Languages & Core",
+      badge: "Systems & Scripting",
+      description: "Infrastructure automation, CLI utilities, and high-performance backend scripting.",
+    },
   ],
 
-  // Skills List
+  // Skills List with Core vs Secondary Tool Categorization
   skills: [
-    { name: "Kubernetes", category: "orchestration", level: "Advanced", icon: "☸️" },
-    { name: "OpenShift", category: "orchestration", level: "Advanced", icon: "🔴" },
-    { name: "RKE2", category: "orchestration", level: "Advanced", icon: "🤠" },
-    { name: "Docker", category: "orchestration", level: "Advanced", icon: "🐳" },
-    { name: "kro", category: "orchestration", level: "Intermediate", icon: "⚙️" },
-    { name: "Kanister", category: "orchestration", level: "Advanced", icon: "📦" },
-    { name: "ArgoCD", category: "gitops", level: "Advanced", icon: "🐙" },
-    { name: "Argo Workflows", category: "gitops", level: "Advanced", icon: "🔄" },
-    { name: "Helm", category: "gitops", level: "Advanced", icon: "⎈" },
-    { name: "GitHub Actions", category: "gitops", level: "Advanced", icon: "⚡" },
-    { name: "Kyverno", category: "gitops", level: "Advanced", icon: "🛡️" },
-    { name: "Terraform", category: "cloud", level: "Advanced", icon: "🌍" },
-    { name: "Ansible", category: "cloud", level: "Advanced", icon: "📜" },
-    { name: "AWS", category: "cloud", level: "Advanced", icon: "☁️" },
-    { name: "Azure", category: "cloud", level: "Advanced", icon: "🔷" },
-    { name: "VMware vSphere", category: "cloud", level: "Advanced", icon: "🖥️" },
-    { name: "NetApp", category: "cloud", level: "Intermediate", icon: "💾" },
-    { name: "Linux", category: "cloud", level: "Advanced", icon: "🐧" },
-    { name: "Vault", category: "cloud", level: "Proficient", icon: "🔐" },
-    { name: "Azure DevOps", category: "gitops", level: "Proficient", icon: "🚀" },
-    { name: "Jenkins", category: "gitops", level: "Proficient", icon: "🏗️" },
-    { name: "Prometheus", category: "observability", level: "Advanced", icon: "🔥" },
-    { name: "Grafana", category: "observability", level: "Advanced", icon: "📊" },
-    { name: "Loki", category: "observability", level: "Advanced", icon: "🪵" },
-    { name: "Mimir", category: "observability", level: "Intermediate", icon: "📈" },
-    { name: "Zabbix", category: "observability", level: "Advanced", icon: "📡" },
-    { name: "Go", category: "languages", level: "Proficient", icon: "🔷" },
-    { name: "Python", category: "languages", level: "Advanced", icon: "🐍" },
-    { name: "Bash", category: "languages", level: "Advanced", icon: "🐚" },
+    // Container & Platform
+    { name: "Kubernetes", category: "orchestration", level: "Advanced", icon: "☸️", primary: true },
+    { name: "OpenShift", category: "orchestration", level: "Advanced", icon: "🔴", primary: true },
+    { name: "Helm", category: "orchestration", level: "Advanced", icon: "⎈", primary: true },
+    { name: "Docker", category: "orchestration", level: "Advanced", icon: "🐳", primary: true },
+    { name: "RKE2", category: "orchestration", level: "Advanced", icon: "🤠", primary: true },
+    { name: "Kanister", category: "orchestration", level: "Proficient", icon: "📦", primary: false },
+    { name: "kro", category: "orchestration", level: "Working Knowledge", icon: "⚙️", primary: false },
+
+    // GitOps & CI/CD
+    { name: "ArgoCD", category: "gitops", level: "Advanced", icon: "🐙", primary: true },
+    { name: "Argo Workflows", category: "gitops", level: "Advanced", icon: "🔄", primary: true },
+    { name: "GitHub Actions", category: "gitops", level: "Advanced", icon: "⚡", primary: true },
+    { name: "Kyverno", category: "gitops", level: "Advanced", icon: "🛡️", primary: true },
+    { name: "Azure DevOps", category: "gitops", level: "Working Knowledge", icon: "🚀", primary: false },
+    { name: "Jenkins", category: "gitops", level: "Working Knowledge", icon: "🏗️", primary: false },
+
+    // Cloud & Infrastructure
+    { name: "AWS", category: "cloud", level: "Advanced", icon: "☁️", primary: true },
+    { name: "Azure", category: "cloud", level: "Advanced", icon: "🔷", primary: true },
+    { name: "Terraform", category: "cloud", level: "Advanced", icon: "🌍", primary: true },
+    { name: "Ansible", category: "cloud", level: "Advanced", icon: "📜", primary: true },
+    { name: "Linux", category: "cloud", level: "Advanced", icon: "🐧", primary: true },
+    { name: "VMware vSphere", category: "cloud", level: "Proficient", icon: "🖥️", primary: false },
+    { name: "Vault", category: "cloud", level: "Proficient", icon: "🔐", primary: false },
+    { name: "NetApp", category: "cloud", level: "Familiar", icon: "💾", primary: false },
+
+    // Observability & Telemetry
+    { name: "Prometheus", category: "observability", level: "Advanced", icon: "🔥", primary: true },
+    { name: "Grafana", category: "observability", level: "Advanced", icon: "📊", primary: true },
+    { name: "Loki", category: "observability", level: "Advanced", icon: "🪵", primary: true },
+    { name: "Mimir", category: "observability", level: "Intermediate", icon: "📈", primary: false },
+    { name: "Zabbix", category: "observability", level: "Familiar", icon: "📡", primary: false },
+
+    // Languages & Core
+    { name: "Python", category: "languages", level: "Advanced", icon: "🐍", primary: true },
+    { name: "Bash", category: "languages", level: "Advanced", icon: "🐚", primary: true },
+    { name: "Go", category: "languages", level: "Proficient", icon: "🔷", primary: true },
   ],
 
   // Personal Highlights & Passions Outside Tech

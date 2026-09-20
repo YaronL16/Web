@@ -18,6 +18,10 @@
   - Created `.agents/skills/yaron-profile-sync/SKILL.md` establishing LinkedIn (`https://www.linkedin.com/in/yaron-lavi16/`) as the source of truth for author details.
   - Formally integrated strict non-negotiable guardrail prohibiting any military or IDF affiliations across portfolio content.
   - Linked skill into `AGENTS.md` system guidelines and repository architecture map.
+- [x] **Milestone 6: SDD Multi-Agent Orchestration Framework**
+  - Authored [`specs/06-agent-orchestration-spec.md`](./06-agent-orchestration-spec.md) formalizing the 4-agent persona pipeline and handover gates.
+  - Built `.agents/skills/sdd-orchestrator/SKILL.md` and `.agents/skills/guardrail-compliance-auditor/SKILL.md`.
+  - Integrated orchestration methodology into `AGENTS.md` system instructions.
 
 ---
 

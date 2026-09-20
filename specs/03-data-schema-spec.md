@@ -89,15 +89,18 @@ export interface ProjectItem {
 }
 
 export interface SkillCategory {
-  id: string; // Used for filter matching, e.g. "all", "orchestration", "gitops"
+  id: string; // Used for section matching, e.g. "orchestration", "gitops", "cloud"
   name: string;
+  badge?: string;
+  description?: string;
 }
 
 export interface SkillItem {
   name: string;
   category: string; // Matches a SkillCategory.id
-  level: string;    // e.g. "Advanced", "Proficient", "Intermediate"
+  level: string;    // e.g. "Advanced", "Proficient", "Working Knowledge", "Familiar"
   icon: string;     // Unicode emoji character, e.g. "☸️"
+  primary?: boolean; // When true, rendered in core specialization grid; false in downplayed secondary tooling
 }
 
 export interface PersonalHighlightItem {

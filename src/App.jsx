@@ -77,7 +77,9 @@ export default function App() {
   } = portfolioConfig
 
   const [bannerDismissed, setBannerDismissed] = useState(false)
-  const [activeCategory, setActiveCategory] = useState('all')
+  const [activeCategory, setActiveCategory] = useState(
+    () => skillCategories[0]?.id || 'orchestration'
+  )
   const [terminalHistory, setTerminalHistory] = useState(() =>
     (terminal?.welcomeText || []).map((text) => ({ type: 'system', text }))
   )
@@ -150,10 +152,13 @@ ${customCmdList}
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [terminalHistory])
 
-  const filteredSkills =
-    activeCategory === 'all'
-      ? skills
-      : skills.filter((s) => s.category === activeCategory)
+  const currentCategory =
+    skillCategories.find((c) => c.id === activeCategory) ||
+    skillCategories[0] || { id: 'orchestration', name: 'Container & Platform' }
+
+  const activeCategorySkills = skills.filter((s) => s.category === currentCategory.id)
+  const primarySkills = activeCategorySkills.filter((s) => s.primary !== false)
+  const secondarySkills = activeCategorySkills.filter((s) => s.primary === false)
 
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-200 selection:bg-cyan-500/20 selection:text-cyan-300">
@@ -245,6 +250,17 @@ ${customCmdList}
                 <Github className="w-4 h-4" />
               </a>
             )}
+            {personal.linkedin && (
+              <a
+                href={personal.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-slate-700 transition"
+                title="LinkedIn Profile"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+            )}
             <button
               onClick={copyEmail}
               className="hidden sm:flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/20 transition"
@@ -314,6 +330,17 @@ ${customCmdList}
               <Mail className="w-4 h-4 text-cyan-400" />
               Connect
             </a>
+            {personal.linkedin && (
+              <a
+                href={personal.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 font-medium hover:text-cyan-400 hover:border-slate-700 transition text-sm"
+              >
+                <Linkedin className="w-4 h-4 text-cyan-400" />
+                LinkedIn
+              </a>
+            )}
           </div>
         </section>
 
@@ -480,20 +507,20 @@ ${customCmdList}
           </div>
         </section>
 
-        {/* Filterable Skills Section */}
+        {/* Categorized Skills Section */}
         <section id="skills" className="space-y-8 scroll-mt-24">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800/80 pb-4">
             <div>
-              <div className="text-xs font-mono text-cyan-400 tracking-wider uppercase">Technical Proficiencies</div>
+              <div className="text-xs font-mono text-cyan-400 tracking-wider uppercase">Technical Domains</div>
               <h2 className="text-3xl font-bold text-white tracking-tight mt-1">Platform Toolchain & Stacks</h2>
             </div>
-            {/* Filter Tabs */}
+            {/* Section Switcher Tabs */}
             <div className="flex flex-wrap gap-1.5">
               {skillCategories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`text-xs px-3 py-1.5 rounded-lg font-medium transition ${
+                  className={`text-xs px-3.5 py-1.5 rounded-lg font-medium transition ${
                     activeCategory === category.id
                       ? 'bg-cyan-500 text-slate-950 font-semibold shadow-md shadow-cyan-500/20'
                       : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
@@ -505,24 +532,83 @@ ${customCmdList}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
-            {filteredSkills.map((skill) => (
-              <div
-                key={skill.name}
-                className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 flex items-center justify-between hover:bg-slate-900/70 transition"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-xl" role="img" aria-label={skill.name}>
-                    {skill.icon}
-                  </span>
-                  <div>
-                    <div className="text-sm font-semibold text-white">{skill.name}</div>
-                    <div className="text-[11px] font-mono text-slate-400">{skill.level}</div>
-                  </div>
-                </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400/60" />
+          {/* Active Domain Section Container */}
+          <div className="rounded-2xl bg-slate-900/30 border border-slate-800/90 p-6 sm:p-8 space-y-6">
+            {/* Section Metadata Header */}
+            <div className="space-y-1.5 pb-4 border-b border-slate-800/70">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 font-semibold">
+                  {currentCategory.badge || 'Core Domain'}
+                </span>
+                <span className="text-sm font-bold text-white tracking-tight">
+                  {currentCategory.name}
+                </span>
               </div>
-            ))}
+              {currentCategory.description && (
+                <p className="text-xs text-slate-400 leading-relaxed max-w-2xl font-sans">
+                  {currentCategory.description}
+                </p>
+              )}
+            </div>
+
+            {/* Core & Primary Toolchain */}
+            <div className="space-y-3">
+              <div className="text-[11px] font-mono text-cyan-400/90 uppercase tracking-wider">
+                Core Specialization & Production Stacks
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                {primarySkills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 flex items-center justify-between hover:bg-slate-900/90 transition shadow-sm"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl" role="img" aria-label={skill.name}>
+                        {skill.icon}
+                      </span>
+                      <div>
+                        <div className="text-sm font-semibold text-white">{skill.name}</div>
+                        <div className="text-[11px] font-mono text-cyan-300/80 font-medium">{skill.level}</div>
+                      </div>
+                    </div>
+                    <div className="w-2 h-2 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400/50" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Supporting Tools & Secondary Systems (Downplayed) */}
+            {secondarySkills.length > 0 && (
+              <div className="pt-4 border-t border-slate-800/60 space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+                    Supporting Tooling & Secondary Systems
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-400 px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800">
+                    Familiar
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                  {secondarySkills.map((skill) => (
+                    <div
+                      key={skill.name}
+                      className="p-3 rounded-xl bg-slate-950/40 border border-slate-800/50 flex items-center justify-between hover:border-slate-700/60 transition"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <span className="text-base opacity-75" role="img" aria-label={skill.name}>
+                          {skill.icon}
+                        </span>
+                        <div>
+                          <div className="text-xs font-medium text-slate-300">{skill.name}</div>
+                          <div className="text-[10px] font-mono text-slate-400">{skill.level}</div>
+                        </div>
+                      </div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-slate-600" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -717,6 +803,18 @@ ${customCmdList}
                   <span>GitHub</span>
                 </a>
               )}
+
+              {personal.linkedin && (
+                <a
+                  href={personal.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:text-cyan-400 hover:border-cyan-500/30 transition font-medium text-sm w-full sm:w-auto justify-center"
+                >
+                  <Linkedin className="w-4 h-4 text-cyan-400" />
+                  <span>LinkedIn</span>
+                </a>
+              )}
             </div>
 
             {/* Toast popup */}
@@ -739,6 +837,28 @@ ${customCmdList}
             <span className="text-slate-400">{footer?.credit || 'DevOps & Platform Engineering'}</span>
           </div>
           <div className="flex items-center gap-4">
+            {personal.linkedin && (
+              <a
+                href={personal.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-400 hover:text-cyan-400 transition"
+                title="LinkedIn Profile"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+            )}
+            {personal.github && (
+              <a
+                href={personal.github}
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-400 hover:text-white transition"
+                title="GitHub Profile"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            )}
             <span className="flex items-center gap-1.5 text-emerald-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               {footer?.systemStatus || 'Automated CI/CD via GitHub Pages'}
