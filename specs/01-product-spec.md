@@ -49,8 +49,7 @@ Rather than an ordinary static resume website, the platform functions as an inte
 - **Featured Systems:**
   1. **Echo:** OpenShift Database Backup & Disaster Recovery orchestrator utilizing `kro`, `Kanister`, and S3.
   2. **Multi-Cluster GitOps:** Scaled platform control plane using Helm, ArgoCD ApplicationSets, and Kyverno policy enforcement.
-  3. **KubeAI LLM Platform:** Self-hosted inference platform with hardware-level NVIDIA MIG GPU partitioning on OpenShift.
-  4. **Self-Service Developer Platform:** Automated multi-tenant workspace provisioning across Kubernetes, GitHub, ArgoCD, Harbor, Vault, and Keycloak via custom Terraform modules.
+  3. **Self-Service Developer Platform:** Automated multi-tenant workspace provisioning across Kubernetes, GitHub, ArgoCD, Harbor, Vault, and Keycloak via custom Terraform modules.
 - **Card Metadata:** Project category, production grade status, architecture overview, bullet highlights, and technology tags.
 
 ### 3.5 Categorized Technical Stacks

@@ -66,6 +66,7 @@ export default function App() {
     personal,
     metrics = [],
     terminal,
+    projectsSubtitle,
     projects = [],
     certifications = [],
     speaking = [],
@@ -444,12 +445,14 @@ ${customCmdList}
               <div className="text-xs font-mono text-cyan-400 tracking-wider uppercase">Architecture & Delivery</div>
               <h2 className="text-3xl font-bold text-white tracking-tight mt-1">Key Engineering Projects</h2>
             </div>
-            <p className="text-sm text-slate-400 max-w-md">
-              Selected production implementations spanning automated disaster recovery, multi-cluster GitOps pipelines, and application engineering.
-            </p>
+            {projectsSubtitle && (
+              <p className="text-sm text-slate-400 max-w-md">
+                {projectsSubtitle}
+              </p>
+            )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className={`grid grid-cols-1 ${projects.length === 3 ? 'lg:grid-cols-3' : 'md:grid-cols-2'} gap-6`}>
             {projects.map((project) => (
               <div
                 key={project.id}

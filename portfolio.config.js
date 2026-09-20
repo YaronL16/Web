@@ -82,8 +82,7 @@ LANGUAGES & SCRIPTING: Python, Bash, Go`,
 
       projects: `[1] Echo                   : OpenShift DB Backup & DR orchestrator (kro, Kanister, S3)
 [2] Multi-Cluster GitOps   : Enterprise GitOps control plane (Helm, ArgoCD, Kyverno)
-[3] KubeAI LLM Platform    : Self-hosted inference on OpenShift with NVIDIA MIG GPU partitioning
-[4] Developer Platform     : Automated self-service tenant provisioning (Terraform, Vault, Keycloak)`,
+[3] Developer Platform     : Automated self-service tenant provisioning (Terraform, Vault, Keycloak)`,
 
       certs: `• Microsoft Certified: Azure Solutions Architect Expert (AZ-305)
 • Microsoft Certified: Azure Administrator Associate (AZ-104)
@@ -107,6 +106,8 @@ Status  : Open to platform & infrastructure engineering conversations`,
   },
 
   // Key Engineering Projects
+  projectsSubtitle:
+    "Selected production platforms spanning automated disaster recovery, multi-cluster GitOps control planes, and self-service developer infrastructure.",
   projects: [
     {
       id: "echo",
@@ -135,20 +136,6 @@ Status  : Open to platform & infrastructure engineering conversations`,
         "Hermetic secret decoupling with HashiCorp Vault injection",
       ],
       tags: ["ArgoCD", "Helm", "Kyverno", "Kubernetes", "GitOps", "Vault"],
-    },
-    {
-      id: "kubeai",
-      title: "KubeAI LLM Inference Platform",
-      category: "AI Infrastructure & GPU Orchestration",
-      status: "Production Deployed",
-      description:
-        "Self-hosted large language model inference platform engineered with KubeAI on OpenShift. Features hardware-level GPU partitioning via NVIDIA Multi-Instance GPU (MIG) to serve concurrent foundation models with high compute density and strict latency guarantees.",
-      highlights: [
-        "NVIDIA MIG hardware slicing maximizing multi-tenant GPU compute density",
-        "Declarative model lifecycles and autoscaling using KubeAI custom resources",
-        "Low-latency inference routing with Prometheus telemetry and alerting integration",
-      ],
-      tags: ["OpenShift", "KubeAI", "NVIDIA MIG", "Kubernetes", "PyTorch", "vLLM", "Prometheus"],
     },
     {
       id: "developer-platform",

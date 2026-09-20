@@ -12,6 +12,7 @@ export interface PortfolioConfig {
   personal: PersonalConfig;
   metrics?: MetricItem[];
   terminal: TerminalConfig;
+  projectsSubtitle?: string;
   projects: ProjectItem[];
   certifications?: CertificationItem[];
   speaking?: SpeakingItem[];
