@@ -48,7 +48,7 @@ Rather than an ordinary static resume website, the platform functions as an inte
 ### 3.4 Key Engineering Projects
 - **Featured Systems:**
   1. **Echo:** OpenShift Database Backup & Disaster Recovery orchestrator utilizing `kro`, `Kanister`, and S3.
-  2. **Multi-Cluster GitOps:** Scaled platform control plane using Helm, ArgoCD ApplicationSets, and automated drift remediation.
+  2. **Multi-Cluster GitOps:** Scaled platform control plane using Helm, ArgoCD ApplicationSets, and Kyverno admission policies for strict multi-tenant isolation.
   3. **Self-Service Developer Platform:** Automated multi-tenant workspace provisioning across Kubernetes, GitHub, ArgoCD, Harbor, Vault, and Keycloak via custom Terraform modules.
 - **Card Metadata:** Project category, production grade status, architecture overview, bullet highlights, and technology tags.
 

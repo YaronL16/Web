@@ -77,13 +77,13 @@ B.Sc. Computer Science Student @ The College of Management Academic Studies (Exp
 Specializing in Kubernetes, OpenShift, GitOps, declarative systems, and platform infrastructure.`,
 
       skills: `CONTAINER & PLATFORM : Kubernetes, OpenShift, Helm, Docker, RKE2 | Secondary: Kanister, kro
-GITOPS & CI/CD       : ArgoCD, Argo Workflows, GitHub Actions | Secondary: Azure DevOps, Jenkins
+GITOPS & CI/CD       : ArgoCD, Argo Workflows, GitHub Actions, Kyverno | Secondary: Azure DevOps, Jenkins
 CLOUD & IAC          : AWS, Azure, Terraform, Ansible, Linux | Secondary: VMware vSphere, Vault, NetApp
 OBSERVABILITY        : Prometheus, Grafana, Loki, Mimir | Secondary: Zabbix (familiar)
 LANGUAGES & SCRIPTING: Python, Bash, Go`,
 
       projects: `[1] Echo                   : OpenShift DB Backup & DR orchestrator (kro, Kanister, S3)
-[2] Multi-Cluster GitOps   : Enterprise GitOps control plane (Helm, ArgoCD, ApplicationSets)
+[2] Multi-Cluster GitOps   : Multi-tenant GitOps control plane & admission policies (Helm, ArgoCD, Kyverno)
 [3] Developer Platform     : Automated self-service tenant provisioning (Terraform, Vault, Keycloak)`,
 
       certs: `• Microsoft Certified: Azure Solutions Architect Expert (AZ-305)
@@ -133,16 +133,16 @@ Type "help" to list available platform inspection commands.`,
     {
       id: "gitops",
       title: "Multi-Cluster GitOps",
-      category: "Platform Architecture & GitOps",
+      category: "Multi-Tenancy & GitOps Architecture",
       status: "Active Control Plane",
       description:
-        "Enterprise multi-cluster GitOps control plane utilizing ArgoCD ApplicationSets, Helm charts, and declarative Kubernetes controllers to automate drift remediation, zero-trust RBAC, and multi-tenant workload deployments.",
+        "Enterprise multi-cluster GitOps control plane utilizing ArgoCD ApplicationSets, Helm charts, and Kyverno policy-as-code admission control to enforce strict multi-tenant workload isolation, declarative drift remediation, and zero-trust RBAC.",
       highlights: [
         "Dynamic cluster registration and configuration distribution via ApplicationSets",
-        "Automated drift remediation and declarative workload validation across cluster fleets",
+        "Strict multi-tenant isolation and security guardrails enforced via Kyverno admission policies",
         "Hermetic secret decoupling with HashiCorp Vault injection",
       ],
-      tags: ["ArgoCD", "Helm", "Kubernetes", "GitOps", "ApplicationSets", "Vault"],
+      tags: ["ArgoCD", "Helm", "Kyverno", "Kubernetes", "GitOps", "Vault"],
     },
     {
       id: "developer-platform",
@@ -244,7 +244,7 @@ Type "help" to list available platform inspection commands.`,
     { name: "ArgoCD", category: "gitops", level: "Advanced", icon: "🐙", primary: true },
     { name: "Argo Workflows", category: "gitops", level: "Advanced", icon: "🔄", primary: true },
     { name: "GitHub Actions", category: "gitops", level: "Advanced", icon: "⚡", primary: true },
-    { name: "Kyverno", category: "gitops", level: "Advanced", icon: "🛡️", primary: false },
+    { name: "Kyverno", category: "gitops", level: "Advanced", icon: "🛡️", primary: true },
     { name: "Azure DevOps", category: "gitops", level: "Intermediate", icon: "🚀", primary: false },
     { name: "Jenkins", category: "gitops", level: "Intermediate", icon: "🏗️", primary: false },
 
