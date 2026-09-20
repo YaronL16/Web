@@ -54,8 +54,9 @@ flowchart LR
   1. Static syntax verification (non-destructive node syntax/AST check).
   2. Markdown link verification.
   3. Ensure workspace is clean (`git status` contains no `node_modules` or `dist`).
-  4. Conventional commit formatting (`feat:`, `docs:`, `fix:`, `refactor:`).
-- **Pass Criteria:** Clean static check and readiness for remote GitHub Actions runner.
+  4. Formulate conventional commit formatting (`feat:`, `docs:`, `fix:`, `refactor:`).
+  5. **Automated Commit & Push:** After verification passes, automatically stage, commit, and push (`git push origin main`) to remote to trigger GitHub Actions deployment.
+- **Pass Criteria:** Clean static check, successful git push, and verified CI/CD runner trigger.
 
 ---
 
@@ -112,6 +113,6 @@ invoke_subagent([{
 Check JS syntax of modified files.
 Verify markdown links in specs/.
 Check git status to ensure no node_modules/ or dist/ directories exist.
-Formulate a conventional commit message.`
+Formulate a conventional commit message, commit the changes, and automatically execute 'git push origin main' to trigger the remote deployment workflow.`
 }])
 ```

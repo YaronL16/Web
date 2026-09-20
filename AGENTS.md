@@ -104,7 +104,8 @@ Before implementing any architectural change, new section, or data schema modifi
    - `docs:` for documentation or specification updates
    - `fix:` for bug fixes
    - `refactor:` for code refactoring without behavior change
-2. **Push to `main`:** Pushing to the `main` branch automatically triggers `.github/workflows/deploy.yml`.
-3. **Verification:**
-   - Check workflow status via GitHub API or the Actions tab.
+2. **Automated Push to `main`:** Upon passing Phase 4 verification and compliance checks, the agent MUST automatically execute `git add`, `git commit`, and `git push origin main`. Pushing to `main` automatically triggers `.github/workflows/deploy.yml` on GitHub Actions.
+3. **Delivery Verification:**
+   - Confirm push completion to remote `main`.
+   - Verify workflow status via GitHub API or the Actions tab.
    - Verify live assets on `https://yaronl16.github.io/Web/` return HTTP 200 without runtime console errors.

@@ -364,6 +364,7 @@ ${customCmdList}
                 {(terminal?.quickButtons || ['whoami', 'skills', 'projects', 'status', 'clear']).map((cmd) => (
                   <button
                     key={cmd}
+                    type="button"
                     onClick={() => handleCommand(cmd)}
                     className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/80 hover:bg-slate-700 text-cyan-300 border border-slate-700/60 transition"
                   >
@@ -389,7 +390,10 @@ ${customCmdList}
             </div>
 
             {/* Terminal Body */}
-            <div className="p-4 sm:p-6 space-y-3 min-h-[300px] max-h-[420px] overflow-y-auto">
+            <div
+              ref={terminalBodyRef}
+              className="p-4 sm:p-6 space-y-3 min-h-[300px] max-h-[420px] overflow-y-auto"
+            >
               {terminalHistory.map((item, index) => (
                 <div key={index} className="leading-relaxed">
                   {item.type === 'system' && (
@@ -413,7 +417,6 @@ ${customCmdList}
                   )}
                 </div>
               ))}
-              <div ref={terminalEndRef} />
             </div>
 
             {/* Terminal Command Input Form */}
