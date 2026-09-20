@@ -46,3 +46,16 @@ All text, projects, skills, terminal commands, and links can be edited in a sing
 - **Pipeline:** Remote automated build in [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)
 - **Runner:** `ubuntu-latest` (Node.js 20 $\rightarrow$ `npm install` $\rightarrow$ `npm run build` $\rightarrow$ `deploy-pages`)
 - **Hosting:** GitHub Pages
+
+---
+
+## 📐 Spec-Driven Development (SDD)
+
+This project strictly adheres to **Spec-Driven Development**. Every feature, architectural decision, data schema, and terminal interaction is formally documented in specifications before implementation:
+
+- 📑 **[specs/README.md](./specs/README.md)** — SDD Manifesto, Index, and Principles
+- 📋 **[specs/01-product-spec.md](./specs/01-product-spec.md)** — Requirements, Personas, and Non-Goals
+- 🏛️ **[specs/02-architecture-spec.md](./specs/02-architecture-spec.md)** — System Architecture, Hierarchy, and Delivery Pipeline
+- 📄 **[specs/03-data-schema-spec.md](./specs/03-data-schema-spec.md)** — Formal Schema & TypeScript Interfaces for `portfolio.config.js`
+- 💻 **[specs/04-terminal-engine-spec.md](./specs/04-terminal-engine-spec.md)** — Shell State Machine & Command Execution Rules
+- 🗺️ **[specs/05-tasks-and-roadmap.md](./specs/05-tasks-and-roadmap.md)** — Completed Milestones & Prioritized Backlog
