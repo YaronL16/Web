@@ -27,7 +27,9 @@ import {
   CheckCircle2,
   Boxes,
   Bot,
-  X
+  X,
+  Languages,
+  Globe
 } from 'lucide-react'
 
 // Import all editable portfolio content from root portfolio.config.js
@@ -38,6 +40,8 @@ const ICON_MAP = {
   Dumbbell,
   GlassWater,
   Music2,
+  Languages,
+  Globe,
   Terminal: TerminalIcon,
   Server,
   Shield,
@@ -62,6 +66,7 @@ export default function App() {
     skillCategories = [],
     skills = [],
     personalHighlights = [],
+    spokenLanguages = [],
     footer
   } = portfolioConfig
 
@@ -510,40 +515,69 @@ ${customCmdList}
           </div>
         </section>
 
-        {/* Personal Highlights */}
+        {/* Beyond the Terminal: Hobbies & Languages */}
         <section id="highlights" className="space-y-8 scroll-mt-24">
           <div className="border-b border-slate-800/80 pb-4">
             <div className="text-xs font-mono text-cyan-400 tracking-wider uppercase">Beyond the Terminal</div>
-            <h2 className="text-3xl font-bold text-white tracking-tight mt-1">Personal Passions & Craft</h2>
+            <h2 className="text-3xl font-bold text-white tracking-tight mt-1">Interests & Languages</h2>
             <p className="text-sm text-slate-400 max-w-xl mt-1">
-              Disciplines that keep me curious, sharp, and creatively balanced outside software architecture.
+              Disciplines and linguistic interests that keep me curious, sharp, and well-rounded.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Clean, Punchy Hobbies Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {personalHighlights.map((item, index) => {
               const Icon = ICON_MAP[item.iconName] || Sparkles
               return (
                 <div
                   key={index}
-                  className={`rounded-2xl bg-gradient-to-b ${item.accent} bg-slate-900/50 border p-6 flex flex-col justify-between space-y-4`}
+                  className="rounded-xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700/80 p-5 flex flex-col justify-between space-y-3 transition duration-150 hover:bg-slate-900/70"
                 >
-                  <div className="space-y-3">
-                    <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700/80 flex items-center justify-center text-cyan-300 shadow-md">
-                      <Icon className="w-5 h-5" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-cyan-300 shrink-0">
+                      <Icon className="w-4 h-4" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white">{item.title}</h3>
-                      <div className="text-xs font-mono text-slate-400 mt-0.5">{item.tagline}</div>
+                      <h3 className="text-sm font-semibold text-white">{item.title}</h3>
+                      <div className="text-[11px] font-mono text-slate-400">{item.tagline}</div>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      {item.description}
-                    </p>
                   </div>
+                  <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                    {item.description}
+                  </p>
                 </div>
               )
             })}
           </div>
+
+          {/* Languages & Proficiencies */}
+          {spokenLanguages.length > 0 && (
+            <div className="rounded-xl bg-[#090d14] border border-slate-800/90 p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5 shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                  <Globe className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-white">Languages & Proficiencies</div>
+                  <div className="text-[11px] font-mono text-slate-400">Spoken & Written Communication</div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2.5">
+                {spokenLanguages.map((lang, idx) => (
+                  <div
+                    key={idx}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-slate-700 transition"
+                  >
+                    <span className={`w-2 h-2 rounded-full ${lang.dotColor || 'bg-cyan-400'}`} />
+                    <span className="font-semibold text-white">{lang.language}</span>
+                    <span className="text-slate-400 font-mono text-[11px]">— {lang.level}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Contact Section */}
@@ -557,7 +591,7 @@ ${customCmdList}
                 Ready to elevate your platform?
               </h2>
               <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-                Whether you want to discuss declarative Kubernetes infrastructure, disaster recovery orchestration, or batched cocktails — my inbox is always open.
+                Whether you want to discuss declarative Kubernetes infrastructure, disaster recovery orchestration, or good drinks — my inbox is always open.
               </p>
             </div>
 

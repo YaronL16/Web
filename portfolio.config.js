@@ -188,29 +188,41 @@ Status : Open to platform & infrastructure engineering conversations`,
   // Personal Highlights & Passions Outside Tech
   personalHighlights: [
     {
-      title: "Calisthenics & Ring Workouts",
-      tagline: "Bodyweight Strength & Kinesthetic Mastery",
+      title: "Calisthenics",
+      tagline: "Bodyweight training",
       iconName: "Dumbbell",
       accent: "from-cyan-500/20 to-blue-500/10 border-cyan-500/30",
-      description:
-        "Dedicated to gymnastic rings training, strict muscle-ups, leverage holds, and progressive overload calisthenics. Translates the discipline of incremental physical conditioning into engineering problem solving.",
+      description: "Bodyweight strength, gymnastic rings, and progressive leverage training.",
     },
     {
-      title: "Mixology & Batched Cocktails",
-      tagline: "Precision Infusions & Artisanal Flavors",
+      title: "Mixology & Good Drinks",
+      tagline: "Flavor profiling",
       iconName: "GlassWater",
       accent: "from-amber-500/20 to-orange-500/10 border-amber-500/30",
-      description:
-        "Exploring flavor balance, milk-clarification techniques, acid adjustments, bespoke syrups, and pre-batched high-volume cocktails designed for effortless hosting.",
+      description: "Crafting well-balanced drinks, exploring spirits, and relaxed hosting.",
     },
     {
       title: "Rock Piano & Guitar",
-      tagline: "Harmonic Flow & Creative Rhythm",
+      tagline: "Keys & strings",
       iconName: "Music2",
       accent: "from-emerald-500/20 to-teal-500/10 border-emerald-500/30",
-      description:
-        "Lifelong passion for keyboards and guitar — exploring progressive rock chord voicings, polyrhythms, dynamic blues grooves, and creative improvisation sessions.",
+      description: "Classic rock, progressive grooves, rhythm flow, and improvisation.",
     },
+    {
+      title: "Language Learning",
+      tagline: "Active curiosity",
+      iconName: "Languages",
+      accent: "from-purple-500/20 to-indigo-500/10 border-purple-500/30",
+      description: "Active interest in learning new languages, phonetics, and cultural idioms.",
+    },
+  ],
+
+  // Spoken Languages & Proficiencies
+  spokenLanguages: [
+    { language: "Hebrew", level: "Native", dotColor: "bg-emerald-400" },
+    { language: "English", level: "Fluent", dotColor: "bg-cyan-400" },
+    { language: "French", level: "Working proficiency", dotColor: "bg-blue-400" },
+    { language: "Italian", level: "Conversational", dotColor: "bg-amber-400" },
   ],
 
   // Footer text

@@ -16,7 +16,14 @@ export interface PortfolioConfig {
   skillCategories: SkillCategory[];
   skills: SkillItem[];
   personalHighlights: PersonalHighlightItem[];
+  spokenLanguages?: SpokenLanguageItem[];
   footer?: FooterConfig;
+}
+
+export interface SpokenLanguageItem {
+  language: string;
+  level: string; // e.g. "Native", "Fluent", "Working proficiency", "Conversational"
+  dotColor?: string; // Tailwind bg color class, e.g. "bg-emerald-400"
 }
 
 export interface DisclaimerBannerConfig {
