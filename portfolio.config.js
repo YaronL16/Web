@@ -17,7 +17,7 @@ export const portfolioConfig = {
     enabled: true,
     badge: "ORCHESTRATOR AGENT",
     icon: "Workflow",
-    text: "Yeah, obviously this was built with AI — nobody writes boilerplate frontend in 2026. On the bright side, I actually know spec-driven development and agentic workflows.",
+    text: "Built with AI — nobody writes boilerplate in 2026. Driven by spec-driven development and agentic workflows.",
   },
 
   // Personal & Header Information

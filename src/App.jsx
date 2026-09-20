@@ -188,7 +188,7 @@ ${customCmdList}
                 <BannerIcon className="w-3.5 h-3.5 text-cyan-400" />
                 <span>{disclaimerBanner?.badge || 'ORCHESTRATOR AGENT'}</span>
               </span>
-              <p className="text-slate-300 font-sans leading-snug">
+              <p className="text-slate-300 font-sans leading-snug text-balance">
                 <span className="text-slate-100 font-medium">{disclaimerBanner.text}</span>
               </p>
             </div>
