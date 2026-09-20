@@ -15,8 +15,8 @@ export const portfolioConfig = {
   // Top Disclaimer Banner
   disclaimerBanner: {
     enabled: true,
-    badge: "ORCHESTRATOR AGENT",
-    icon: "Workflow",
+    badge: "YARON (HUMAN)",
+    icon: "User",
     text: "Yeah, obviously this was built with AI — nobody writes boilerplate frontend in 2026.\nOn the bright side, I actually know spec-driven development and agentic workflows.",
   },
 
