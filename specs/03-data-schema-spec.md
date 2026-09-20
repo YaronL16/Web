@@ -48,6 +48,7 @@ export interface SpokenLanguageItem {
 export interface DisclaimerBannerConfig {
   enabled: boolean;
   badge?: string;
+  icon?: string; // Icon identifier from ICON_MAP (e.g. "Workflow", "Cpu", "Bot")
   text: string;
 }
 

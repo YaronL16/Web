@@ -11,7 +11,7 @@
   - Documented editing workflows for non-developers and GitHub web editor.
 - [x] **Milestone 3: Top Transparency & Disclaimer Banner**
   - Created self-aware, humorous disclaimer banner honoring spec-driven development and modern agentic engineering.
-  - Integrated amber/cyan glow badge with robot icon and dismiss functionality.
+  - Integrated amber/cyan glow badge with orchestrator agent icon (`Workflow`), configurable badge text (`ORCHESTRATOR AGENT`), and dismiss functionality.
 - [x] **Milestone 4: Spec-Driven Development (SDD) Formalization**
   - Authored comprehensive specifications across product, architecture, schema, terminal, and roadmap.
 - [x] **Milestone 5: Agent Workspace Skill (`yaron-profile-sync`)**

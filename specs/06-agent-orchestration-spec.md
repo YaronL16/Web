@@ -57,7 +57,7 @@ flowchart TD
 | **Spec Architect Agent** | Requirements distillation, updating `specs/*.md`, and defining data contracts in `specs/03-data-schema-spec.md`. | Read/Write to `specs/`, Read-only on codebase. | Ensures zero undocumented code exists. |
 | **Compliance & Guardrail Auditor Agent** | Pre-flight and post-flight automated invariant auditing. | Read-only scanner across all files; runs regex/AST checks. | • Complete omission of military/IDF references.<br/>• Source-of-truth compliance with `yaron-profile-sync` / resume.<br/>• Zero local `npm install` or local build execution.<br/>• Strict content decoupling from `src/App.jsx`. |
 | **Implementation Engineer Agent** | Code and configuration synthesis adhering strictly to the approved specification. | Write access to `portfolio.config.js` and `src/`. | Strictly avoids touching presentation code for content updates. |
-| **Verification & Delivery Agent** | Syntax verification, schema validation, commit message construction, and CI/CD monitoring. | Read-only verification, git commands, CI monitoring. | Verifies zero workspace pollution (`node_modules`, `dist`), clean git status, and successful remote build on GitHub Pages. |
+| **Verification & Delivery Agent** | Syntax verification, schema validation, conventional commit construction, and automated git push to `main` to trigger remote CI/CD. | Read-only verification, git commands, CI monitoring. | Verifies zero workspace pollution (`node_modules`, `dist`), clean git status, and successful remote build on GitHub Pages. |
 
 ---
 
@@ -91,16 +91,17 @@ flowchart TD
   3. Keep changes minimal, clean, and declarative.
 - **Handover Artifact:** File diffs restricted exclusively to target config and presentation files.
 
-### 3.4 Phase 4: Static Verification & Remote Delivery
+### 3.4 Phase 4: Static Verification, Automated Commit & Delivery
 - **Trigger:** Code edits complete.
 - **Agent:** `Verification & Delivery Agent`.
 - **Action:**
   1. Perform non-destructive AST/syntax checks on modified JavaScript files.
   2. Verify markdown links and heading anchors in specs.
   3. Re-verify repository cleanliness (`git status` contains no `node_modules`, `dist`, or temporary build files).
-  4. Prepare conventional commit message (`feat:`, `docs:`, `fix:`, `refactor:`).
-  5. Verify remote deployment status on GitHub Actions runner (`.github/workflows/deploy.yml`).
-- **Handover Artifact:** Verified commit and deployment confirmation.
+  4. Formulate conventional commit message (`feat:`, `docs:`, `fix:`, `refactor:`).
+  5. **Automated Commit & Push:** Once all verification and compliance checks clear without errors, automatically stage (`git add`), commit (`git commit -m "..."`), and push (`git push origin main`) to remote.
+  6. Track and verify remote deployment status on GitHub Actions runner (`.github/workflows/deploy.yml`).
+- **Handover Artifact:** Verified commit SHA, remote push confirmation, and CI/CD deployment tracking.
 
 ---
 

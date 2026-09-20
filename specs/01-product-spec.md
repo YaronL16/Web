@@ -26,7 +26,7 @@ Rather than an ordinary static resume website, the platform functions as an inte
 ### 3.1 Top Transparency Disclaimer Banner
 - **Requirement:** A stylish, self-aware banner positioned above the header acknowledging the use of AI while highlighting mastery over spec-driven development and agentic workflows.
 - **Copy Target:** *"Yeah, obviously this was built with AI — nobody writes boilerplate frontend in 2026. On the bright side, I actually know spec-driven development and agentic workflows."*
-- **Visuals:** Dark carbon background with amber/cyan gradient glow and robot icon (`Bot`). Dismissible via close button.
+- **Visuals:** Dark carbon background with amber/cyan gradient glow and orchestrator agent icon (`Workflow`). Badge displays `"ORCHESTRATOR AGENT"` (avoiding duplicate "spec-driven" phrasing across the banner). Dismissible via close button.
 
 ### 3.2 Hero Section
 - **Identity & Focus:** Yaron Lavi — DevOps & Platform Engineer & B.Sc. Computer Science Student.

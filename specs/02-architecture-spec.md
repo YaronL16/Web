@@ -51,7 +51,7 @@ graph TD
 App.jsx (Root)
 │
 ├── Top Disclaimer Banner (Conditional: disclaimerBanner.enabled && !dismissed)
-│   ├── Badge & Bot Icon
+│   ├── Badge & Orchestrator Icon
 │   ├── Copy Notice
 │   └── Dismiss Button (X)
 │

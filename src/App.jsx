@@ -27,6 +27,7 @@ import {
   CheckCircle2,
   Boxes,
   Bot,
+  Workflow,
   X,
   Languages,
   Globe,
@@ -57,7 +58,9 @@ const ICON_MAP = {
   Radio,
   Boxes,
   Sparkles,
-  Layers
+  Layers,
+  Workflow,
+  Bot
 }
 
 export default function App() {
@@ -78,6 +81,7 @@ export default function App() {
   } = portfolioConfig
 
   const [bannerDismissed, setBannerDismissed] = useState(false)
+  const BannerIcon = ICON_MAP[disclaimerBanner?.icon] || Workflow
   const [activeCategory, setActiveCategory] = useState(
     () => skillCategories[0]?.id || 'orchestration'
   )
@@ -86,7 +90,7 @@ export default function App() {
   )
   const [terminalInput, setTerminalInput] = useState('')
   const [copied, setCopied] = useState(false)
-  const terminalEndRef = useRef(null)
+  const terminalBodyRef = useRef(null)
 
   const email = personal?.email || 'lavi.yaron16@gmail.com'
   const promptString = `${terminal?.user || 'yaron'}@${terminal?.host || 'platform-node-01'}:~$`
@@ -150,7 +154,9 @@ ${customCmdList}
   }
 
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight
+    }
   }, [terminalHistory])
 
   const currentCategory =
@@ -179,8 +185,8 @@ ${customCmdList}
           <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
             <div className="flex items-center gap-2.5 flex-wrap sm:flex-nowrap">
               <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-300 font-mono text-[11px] font-semibold tracking-wide shrink-0 shadow-sm shadow-amber-500/10">
-                <Bot className="w-3.5 h-3.5 text-cyan-400" />
-                <span>{disclaimerBanner.badge || 'SPEC-DRIVEN DEV'}</span>
+                <BannerIcon className="w-3.5 h-3.5 text-cyan-400" />
+                <span>{disclaimerBanner?.badge || 'ORCHESTRATOR AGENT'}</span>
               </span>
               <p className="text-slate-300 font-sans leading-snug">
                 <span className="text-slate-100 font-medium">{disclaimerBanner.text}</span>
