@@ -259,7 +259,7 @@ Status  : Open to platform & infrastructure engineering conversations`,
     { name: "Docker", category: "orchestration", level: "Advanced", icon: "🐳", primary: true },
     { name: "RKE2", category: "orchestration", level: "Advanced", icon: "🤠", primary: true },
     { name: "Kanister", category: "orchestration", level: "Proficient", icon: "📦", primary: false },
-    { name: "kro", category: "orchestration", level: "Working Knowledge", icon: "⚙️", primary: false },
+    { name: "kro", category: "orchestration", level: "Proficient", icon: "⚙️", primary: false },
 
     // GitOps & CI/CD
     { name: "ArgoCD", category: "gitops", level: "Advanced", icon: "🐙", primary: true },
@@ -270,7 +270,7 @@ Status  : Open to platform & infrastructure engineering conversations`,
     { name: "Jenkins", category: "gitops", level: "Working Knowledge", icon: "🏗️", primary: false },
 
     // Cloud & Infrastructure
-    { name: "AWS", category: "cloud", level: "Advanced", icon: "☁️", primary: true },
+    { name: "AWS", category: "cloud", level: "Proficient", icon: "☁️", primary: true },
     { name: "Azure", category: "cloud", level: "Advanced", icon: "🔷", primary: true },
     { name: "Terraform", category: "cloud", level: "Advanced", icon: "🌍", primary: true },
     { name: "Ansible", category: "cloud", level: "Advanced", icon: "📜", primary: true },

@@ -585,7 +585,7 @@ ${customCmdList}
                     Supporting Tooling & Secondary Systems
                   </span>
                   <span className="text-[10px] font-mono text-slate-400 px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800">
-                    Familiar
+                    Ecosystem
                   </span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">

@@ -19,7 +19,7 @@
 
 ## Technical Skills
 
-- **Container Orchestration & Platform:** Kubernetes, OpenShift, RKE2, Helm, Docker
+- **Container Orchestration & Platform:** Kubernetes, OpenShift, RKE2, Helm, Docker, kro, Kanister
 - **GitOps & CI/CD:** ArgoCD, Argo Workflows, GitHub Actions, Azure DevOps, Jenkins
 - **Cloud & Infrastructure as Code:** AWS, Azure, Terraform, Ansible
 - **Programming & Scripting Languages:** Go, Python, Bash
