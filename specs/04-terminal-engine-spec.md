@@ -28,8 +28,8 @@ stateDiagram-v2
     FormatHelp --> AppendBuffer: Display dynamic command list
     ResolveOutput --> AppendBuffer: Display custom output text
     CommandNotFound --> AppendBuffer: Display bash-style error
-    AppendBuffer --> ScrollToBottom: useEffect smooth scroll
-    ScrollToBottom --> Idle
+    AppendBuffer --> ScrollTerminalBody: Internal container scrollTop
+    ScrollTerminalBody --> Idle
 ```
 
 ---
@@ -52,5 +52,5 @@ stateDiagram-v2
 ## 4. UI/UX Features
 
 - **Chrome:** Window decoration styling with macOS red/amber/green window controls, node hostname, and UTF-8 encoding badge.
-- **Auto-scroll:** `terminalEndRef` automatically triggers smooth scrolling into view whenever `terminalHistory` receives a new entry.
+- **Auto-scroll:** `terminalBodyRef` automatically scrolls the internal terminal container (`scrollTop = scrollHeight`) whenever `terminalHistory` receives a new entry, keeping the outer document/window scroll position completely undisturbed.
 - **Quick-Run Chips:** Buttons above the terminal allow mobile and mouse-first users to click commands (`whoami`, `skills`, `projects`, etc.) without typing.
