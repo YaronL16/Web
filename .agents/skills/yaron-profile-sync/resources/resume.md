@@ -35,7 +35,7 @@
 ## Engineering Experience & Architectural Highlights
 
 ### DevOps & Platform Engineer (Feb. 2024 – Present)
-- **Multi-Cloud Migration:** Led the migration of 100+ developers from Azure to AWS, provisioning cloud infrastructure with Terraform, building GitHub Actions CI pipelines, and modernizing CD from legacy Helm pipelines to declarative ArgoCD GitOps.
+- **Complete DevOps Workflow & Cloud Migration:** Led an end-to-end DevOps workflow and cloud migration for 100+ developers (transitioning from Azure to AWS), provisioning cloud infrastructure with Terraform, engineering GitHub Actions CI pipelines, and modernizing CD from legacy Helm pipelines to declarative ArgoCD GitOps.
 - **Self-Service Developer Platform:** Engineered a developer platform using custom Terraform modules, automating tenant provisioning across Kubernetes, GitHub, ArgoCD, Harbor, Vault, Grafana, and Keycloak to accelerate service bootstrapping.
 - **Enterprise DB Backup & Disaster Recovery (Project Echo):** Saved \$300K+ in enterprise licensing by architecting an in-house DB backup and disaster recovery platform on OpenShift. Built declarative self-service CRDs abstracting background complexity using kro (Kubernetes Resource Orchestrator), Argo Workflows, and Kanister, and developed a custom Go exporter for Prometheus.
 - **AI Infrastructure & GPU Partitioning (KubeAI Platform):** Architected a self-hosted LLM inference platform using KubeAI on OpenShift, partitioning GPUs via NVIDIA Multi-Instance GPU (MIG) to serve concurrent large models under strict hardware density constraints.

@@ -48,7 +48,7 @@ export const portfolioConfig = {
     },
     {
       value: "100+ Devs",
-      label: "Azure to AWS GitOps Migration",
+      label: "Complete DevOps Workflow Migration",
       accent: "text-purple-400",
     },
     {

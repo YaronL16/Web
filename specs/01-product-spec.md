@@ -31,7 +31,7 @@ Rather than an ordinary static resume website, the platform functions as an inte
 ### 3.2 Hero Section
 - **Identity & Focus:** Yaron Lavi — DevOps & Platform Engineer & B.Sc. Computer Science Student.
 - **Value Proposition:** Declarative systems, Kubernetes, OpenShift, GitOps, zero-trust infrastructure, and telemetry.
-- **Key Metrics Row:** 4 scannable telemetry cards highlighting core architectural focus areas.
+- **Key Metrics Row:** 4 scannable telemetry cards highlighting core architectural focus areas (HA clusters, DR savings, complete DevOps workflow migration for 100+ devs, and telemetry compute optimization).
 
 ### 3.3 Interactive Terminal Component
 - **Node Simulation:** Emulate a Unix shell session (`yaron@platform-node-01:~$`).
