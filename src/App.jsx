@@ -25,7 +25,9 @@ import {
   RefreshCw,
   Eye,
   CheckCircle2,
-  Boxes
+  Boxes,
+  Bot,
+  X
 } from 'lucide-react'
 
 // Import all editable portfolio content from root portfolio.config.js
@@ -52,6 +54,7 @@ const ICON_MAP = {
 
 export default function App() {
   const {
+    disclaimerBanner,
     personal,
     metrics = [],
     terminal,
@@ -62,6 +65,7 @@ export default function App() {
     footer
   } = portfolioConfig
 
+  const [bannerDismissed, setBannerDismissed] = useState(false)
   const [activeCategory, setActiveCategory] = useState('all')
   const [terminalHistory, setTerminalHistory] = useState(() =>
     (terminal?.welcomeText || []).map((text) => ({ type: 'system', text }))
@@ -148,6 +152,34 @@ ${customCmdList}
         <div className="absolute top-[40rem] -left-40 w-[500px] h-[500px] bg-emerald-600/10 blur-[140px] rounded-full" />
         <div className="absolute top-[80rem] -right-40 w-[600px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full" />
       </div>
+
+      {/* Top Disclaimer Banner */}
+      {disclaimerBanner?.enabled && !bannerDismissed && (
+        <aside
+          aria-label="Transparency Notice"
+          className="relative z-50 bg-gradient-to-r from-amber-500/10 via-cyan-500/10 to-emerald-500/10 border-b border-cyan-500/25 backdrop-blur-md px-4 py-2 text-xs"
+        >
+          <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5 flex-wrap sm:flex-nowrap">
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-300 font-mono text-[11px] font-semibold tracking-wide shrink-0 shadow-sm shadow-amber-500/10">
+                <Bot className="w-3.5 h-3.5 text-cyan-400" />
+                <span>{disclaimerBanner.badge || 'SPEC-DRIVEN DEV'}</span>
+              </span>
+              <p className="text-slate-300 font-sans leading-snug">
+                <span className="text-slate-100 font-medium">{disclaimerBanner.text}</span>
+              </p>
+            </div>
+            <button
+              onClick={() => setBannerDismissed(true)}
+              className="text-slate-400 hover:text-slate-200 p-1 rounded hover:bg-slate-800/60 transition shrink-0"
+              aria-label="Dismiss banner"
+              title="Dismiss banner"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </aside>
+      )}
 
       {/* Navigation */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#07090e]/80 border-b border-slate-800/80">

@@ -12,6 +12,13 @@
  */
 
 export const portfolioConfig = {
+  // Top Disclaimer Banner
+  disclaimerBanner: {
+    enabled: true,
+    badge: "SPEC-DRIVEN DEV",
+    text: "Yeah, obviously this was built with AI — nobody writes boilerplate frontend in 2026. On the bright side, I actually know spec-driven development and agentic workflows.",
+  },
+
   // Personal & Header Information
   personal: {
     name: "Yaron Lavi",
