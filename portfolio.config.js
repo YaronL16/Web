@@ -80,11 +80,10 @@ CLOUD & IAC          : AWS, Azure, Terraform, Ansible, Linux | Secondary: VMware
 OBSERVABILITY        : Prometheus, Grafana, Loki, Mimir | Secondary: Zabbix (familiar)
 LANGUAGES & SCRIPTING: Python, Bash, Go`,
 
-      projects: `[1] Echo               : OpenShift DB Backup & DR orchestrator (kro, Kanister, S3)
-[2] Multi-Cluster GitOps: Enterprise GitOps control plane (Helm, ArgoCD, Kyverno)
-[3] KubeAI LLM Platform: Self-hosted inference on OpenShift with NVIDIA MIG GPU partitioning
-[4] AmanDate           : Full-stack platform (FastAPI, React, Docker)
-[5] Voyager            : Cloud-native observability stack (Prometheus, Loki, Grafana, Mimir)`,
+      projects: `[1] Echo                   : OpenShift DB Backup & DR orchestrator (kro, Kanister, S3)
+[2] Multi-Cluster GitOps   : Enterprise GitOps control plane (Helm, ArgoCD, Kyverno)
+[3] KubeAI LLM Platform    : Self-hosted inference on OpenShift with NVIDIA MIG GPU partitioning
+[4] Developer Platform     : Automated self-service tenant provisioning (Terraform, Vault, Keycloak)`,
 
       certs: `• Microsoft Certified: Azure Solutions Architect Expert (AZ-305)
 • Microsoft Certified: Azure Administrator Associate (AZ-104)
@@ -138,20 +137,6 @@ Status  : Open to platform & infrastructure engineering conversations`,
       tags: ["ArgoCD", "Helm", "Kyverno", "Kubernetes", "GitOps", "Vault"],
     },
     {
-      id: "amandate",
-      title: "AmanDate",
-      category: "Full-Stack Application",
-      status: "Completed",
-      description:
-        "High-performance full-stack web application engineered with a FastAPI asynchronous backend and React frontend. Encapsulates structured RESTful APIs, optimized data access patterns, and automated containerized CI/CD delivery pipelines.",
-      highlights: [
-        "Asynchronous query handling and schema-validated serialization with Pydantic",
-        "Interactive, responsive modern UI with Tailwind CSS component architecture",
-        "Containerized multi-stage Docker builds with automated verification",
-      ],
-      tags: ["FastAPI", "React", "Python", "Docker", "PostgreSQL", "Tailwind CSS"],
-    },
-    {
       id: "kubeai",
       title: "KubeAI LLM Inference Platform",
       category: "AI Infrastructure & GPU Orchestration",
@@ -166,18 +151,18 @@ Status  : Open to platform & infrastructure engineering conversations`,
       tags: ["OpenShift", "KubeAI", "NVIDIA MIG", "Kubernetes", "PyTorch", "vLLM", "Prometheus"],
     },
     {
-      id: "voyager",
-      title: "Voyager",
-      category: "Cloud-Native Observability",
-      status: "Maintained",
+      id: "developer-platform",
+      title: "Self-Service Developer Platform",
+      category: "Internal Developer Platform & Automation",
+      status: "Production Deployed",
       description:
-        "End-to-end cloud-native telemetry and observability framework unifying Prometheus metric scraping, Loki distributed log aggregation, Grafana visualization, and Mimir long-term metric storage across distributed Kubernetes clusters.",
+        "Automated self-service developer platform powered by custom Terraform modules and GitOps workflows. Streamlines multi-tenant workspace provisioning across Kubernetes, GitHub, ArgoCD, Harbor registry, HashiCorp Vault, and Keycloak SSO to accelerate service bootstrapping.",
       highlights: [
-        "Multi-tenant log correlation linking Loki traces with Prometheus alerting rules",
-        "Custom Grafana operations dashboards tracking cluster SLIs/SLOs and latency",
-        "High-availability horizontal metric tiering with Grafana Mimir",
+        "End-to-end automated tenant bootstrapping across Git repositories, CI/CD, and Kubernetes namespaces",
+        "Zero-trust secrets decoupling and centralized identity governance via Vault and Keycloak",
+        "Reduced developer environment provisioning lead time from days to minutes",
       ],
-      tags: ["Prometheus", "Grafana", "Loki", "Mimir", "OpenTelemetry", "Kubernetes"],
+      tags: ["Terraform", "Kubernetes", "ArgoCD", "Vault", "Keycloak", "Harbor", "GitHub Actions"],
     },
   ],
 
@@ -266,8 +251,8 @@ Status  : Open to platform & infrastructure engineering conversations`,
     { name: "Argo Workflows", category: "gitops", level: "Advanced", icon: "🔄", primary: true },
     { name: "GitHub Actions", category: "gitops", level: "Advanced", icon: "⚡", primary: true },
     { name: "Kyverno", category: "gitops", level: "Advanced", icon: "🛡️", primary: true },
-    { name: "Azure DevOps", category: "gitops", level: "Working Knowledge", icon: "🚀", primary: false },
-    { name: "Jenkins", category: "gitops", level: "Working Knowledge", icon: "🏗️", primary: false },
+    { name: "Azure DevOps", category: "gitops", level: "Intermediate", icon: "🚀", primary: false },
+    { name: "Jenkins", category: "gitops", level: "Intermediate", icon: "🏗️", primary: false },
 
     // Cloud & Infrastructure
     { name: "AWS", category: "cloud", level: "Proficient", icon: "☁️", primary: true },
@@ -277,14 +262,14 @@ Status  : Open to platform & infrastructure engineering conversations`,
     { name: "Linux", category: "cloud", level: "Advanced", icon: "🐧", primary: true },
     { name: "VMware vSphere", category: "cloud", level: "Proficient", icon: "🖥️", primary: false },
     { name: "Vault", category: "cloud", level: "Proficient", icon: "🔐", primary: false },
-    { name: "NetApp", category: "cloud", level: "Familiar", icon: "💾", primary: false },
+    { name: "NetApp", category: "cloud", level: "Proficient", icon: "💾", primary: false },
 
     // Observability & Telemetry
     { name: "Prometheus", category: "observability", level: "Advanced", icon: "🔥", primary: true },
     { name: "Grafana", category: "observability", level: "Advanced", icon: "📊", primary: true },
     { name: "Loki", category: "observability", level: "Advanced", icon: "🪵", primary: true },
     { name: "Mimir", category: "observability", level: "Intermediate", icon: "📈", primary: false },
-    { name: "Zabbix", category: "observability", level: "Familiar", icon: "📡", primary: false },
+    { name: "Zabbix", category: "observability", level: "Intermediate", icon: "📡", primary: false },
 
     // Languages & Core
     { name: "Python", category: "languages", level: "Advanced", icon: "🐍", primary: true },
