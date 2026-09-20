@@ -13,8 +13,10 @@
 - **NEVER** create or leave a `node_modules/` or `dist/` directory in the local workspace.
 - **Why:** The repository is architected for hermetic, remote-only execution. All dependency resolution, bundling, and asset generation occur strictly inside the remote GitHub Actions runner (`.github/workflows/deploy.yml`).
 
-### 🚫 1.2 Topic Boundaries
+### 🚫 1.2 Topic Boundaries & Profile Ground Truth
 - **NEVER** include or introduce any military, IDF, or defense force affiliations anywhere in the website copy, code, documentation, or terminal outputs.
+- **Source of Truth for User Details:** Consult Yaron's LinkedIn profile at [`https://www.linkedin.com/in/yaron-lavi16/`](https://www.linkedin.com/in/yaron-lavi16/) for accurate professional background, roles, education, and skills.
+- **Workspace Skill:** Activate and follow [`.agents/skills/yaron-profile-sync/SKILL.md`](./.agents/skills/yaron-profile-sync/SKILL.md) whenever drafting or editing bio and portfolio content.
 
 ### 🧩 1.3 Content Decoupling
 - **NEVER** hardcode user content, bio details, projects, skills, or terminal commands inside `src/App.jsx`.
@@ -54,6 +56,11 @@ Before implementing any architectural change, new section, or data schema modifi
 ├── tailwind.config.js         # Carbon dark theme & custom styling tokens
 ├── postcss.config.js          # PostCSS processor configuration
 ├── .gitignore                 # Ignores node_modules, dist, OS files
+│
+├── .agents/
+│   └── skills/
+│       └── yaron-profile-sync/
+│           └── SKILL.md       # Workspace skill for editing Yaron's profile & LinkedIn ground truth
 │
 ├── .github/workflows/
 │   └── deploy.yml             # Remote GitHub Actions build & deploy pipeline

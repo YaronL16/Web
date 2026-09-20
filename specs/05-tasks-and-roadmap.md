@@ -14,6 +14,10 @@
   - Integrated amber/cyan glow badge with robot icon and dismiss functionality.
 - [x] **Milestone 4: Spec-Driven Development (SDD) Formalization**
   - Authored comprehensive specifications across product, architecture, schema, terminal, and roadmap.
+- [x] **Milestone 5: Agent Workspace Skill (`yaron-profile-sync`)**
+  - Created `.agents/skills/yaron-profile-sync/SKILL.md` establishing LinkedIn (`https://www.linkedin.com/in/yaron-lavi16/`) as the source of truth for author details.
+  - Formally integrated strict non-negotiable guardrail prohibiting any military or IDF affiliations across portfolio content.
+  - Linked skill into `AGENTS.md` system guidelines and repository architecture map.
 
 ---
 

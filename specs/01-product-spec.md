@@ -61,7 +61,7 @@ Rather than an ordinary static resume website, the platform functions as an inte
 - Contextual showcase of disciplines outside software:
   - Calisthenics & Ring Workouts (progressive overload, physical discipline).
   - Mixology & Batched Cocktails (precision infusions, clarification, culinary balance).
-  - Rock Piano & Guitar (creative improvisation, progressive rock harmony, rhythm).
+  - Rock Piano (creative improvisation, progressive rock harmony, rhythm).
 
 ### 3.7 Contact & Feedback
 - One-click copy email button with interactive toast confirmation ("Copied to clipboard!").
